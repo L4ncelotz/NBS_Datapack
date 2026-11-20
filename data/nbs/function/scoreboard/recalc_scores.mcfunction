@@ -4,7 +4,6 @@ scoreboard players set #score_tick rnd_temp 0
 # ==========================================
 # 1. รีเซ็ตคะแนนทีมและตัวนับ Nether Star (ของชิงชัยนับเฉพาะในกล่องในเขตธงอาณาเขต 32 บล็อกเท่านั้น!)
 # ==========================================
-scoreboard players set @a player_score 0
 scoreboard players set #t1_star team_boss_cnt 0
 scoreboard players set #t2_star team_boss_cnt 0
 scoreboard players set #t3_star team_boss_cnt 0

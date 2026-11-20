@@ -20,8 +20,8 @@ execute if score #raid_day game_state matches 1 as @a[scores={player_kills=1..}]
 # แจ้งเตือนหากติด Cooldown กันปั๊ม Kill
 execute if score #raid_day game_state matches 1 if entity @a[scores={killed_by_player=1..,pvp_cd=1..}] as @a[scores={player_kills=1..}] run tellraw @s [{"text":"⏳ [PvP] ","color":"yellow","bold":true},{"text":"ผู้เล่นนี้เพิ่งถูกสังหารไปไม่นาน (ติด Cooldown 5 นาที) จึงไม่ดรอปป้ายชื่อคะแนน","color":"gray"}]
 
-# ตั้ง Cooldown 5 นาที (6000 ticks) ให้เหยื่อที่เพิ่งดรอปป้ายชื่อ
-scoreboard players set @a[scores={killed_by_player=1..,pvp_cd=0}] pvp_cd 6000
+# ตั้ง Cooldown 5 นาที (6000 ticks) ให้เหยื่อที่เพิ่งดรอปป้ายชื่อในวัน Raid Day
+execute if score #raid_day game_state matches 1 run scoreboard players set @a[scores={killed_by_player=1..,pvp_cd=0}] pvp_cd 6000
 
 # 2. กรณีนอกวัน Raid Day (#raid_day == 0)
 execute if score #raid_day game_state matches 0 as @a[scores={player_kills=1..}] run tellraw @s [{"text":"🕊️ [NBs SMP] ","color":"yellow","bold":true},{"text":"ยังไม่ใช่วัน Raid Day! การสังหารผู้เล่นจะไม่ได้รับป้ายชื่อคะแนน","color":"gray"}]

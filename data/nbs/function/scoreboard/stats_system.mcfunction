@@ -92,6 +92,13 @@ execute as @a run scoreboard players operation @s pts_trial = @s stat_trial
 scoreboard players set #mult item_value 30
 execute as @a run scoreboard players operation @s pts_trial *= #mult item_value
 
+# คำนวณคะแนนผลงานบอส/อีเวนต์ส่วนตัว (player_score) สำหรับแสดงใน /trigger view_stats
+scoreboard players set @a player_score 0
+execute as @a run scoreboard players operation @s player_score += @s pts_warden
+execute as @a run scoreboard players operation @s player_score += @s pts_elder
+execute as @a run scoreboard players operation @s player_score += @s pts_raid
+execute as @a run scoreboard players operation @s player_score += @s pts_trial
+
 # ==========================================
 # 3. ระบบเปิดดูสมุดสถิติ (/trigger view_stats)
 # ==========================================
