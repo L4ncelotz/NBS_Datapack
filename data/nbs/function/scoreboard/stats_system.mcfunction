@@ -1,6 +1,13 @@
 # ==========================================
 # 1. โอนสถิติการฆ่า Boss และ Event จริงเข้าสมุดสถิติ + ตัวนับระดับทีม (ล็อก Hard Cap)
 # ==========================================
+# กำหนดค่าเริ่มต้นสถิติส่วนตัวเป็น 0 (ป้องกันตัวเลขว่างใน /trigger view_stats)
+scoreboard players add @a stat_dragon 0
+scoreboard players add @a stat_wither 0
+scoreboard players add @a stat_warden 0
+scoreboard players add @a stat_elder 0
+scoreboard players add @a stat_raid 0
+scoreboard players add @a stat_trial 0
 # ลด Cooldown ป้องกัน Raid นับเบิ้ลต่อทีม (200 ticks = 10 วินาที)
 scoreboard players remove #t1_raid_lock rnd_temp 1
 execute if score #t1_raid_lock rnd_temp matches ..0 run scoreboard players set #t1_raid_lock rnd_temp 0

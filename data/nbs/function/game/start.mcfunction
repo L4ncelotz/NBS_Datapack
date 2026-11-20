@@ -6,8 +6,9 @@ scoreboard players set #flash_timer rnd_temp 0
 scoreboard players set #flash_cooldown rnd_temp 1800
 bossbar set nbs:flash_quest visible false
 
-# ล้างหมุดจุดเกิดทีมเก่า (ถ้ามี)
+# ล้างพิกัดจุดเกิดทีมเก่า (ถ้ามี)
 kill @e[type=minecraft:marker,tag=team_spawn]
+data remove storage nbs:game team_spawn
 
 # วาร์ปผู้เล่นทุกคนที่มีทีมแล้ว (team_id 1-4) ไปยังจุดเกิดทีมของตัวเอง
 execute as @a[tag=!rtp_joined,scores={team_id=1..4}] at @s run function nbs:rtp/join_team_spawn

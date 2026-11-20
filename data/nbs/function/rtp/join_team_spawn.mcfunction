@@ -1,19 +1,6 @@
-# คัดลอก team_id ของผู้เล่นมาเก็บไว้เทียบกับจุดเกิดทีม
-scoreboard players operation #join_team team_id = @s team_id
-
-# ตรวจว่าทีมนี้มีหมุดจุดเกิด (team_spawn) แล้วหรือยัง
-tag @e[type=minecraft:marker,tag=team_spawn] remove target_team_spawn
-execute as @e[type=minecraft:marker,tag=team_spawn] if score @s team_id = #join_team team_id run tag @s add target_team_spawn
-
-# ถ้าทีมนี้ยังไม่มีจุดเกิด -> เสกหมุดใหม่และสุ่มกระจายตัว 5,000 บล็อก
-execute unless entity @e[type=minecraft:marker,tag=target_team_spawn] run summon minecraft:marker 0 64 0 {Tags:["team_spawn","new_team_spawn","target_team_spawn"]}
-execute as @e[type=minecraft:marker,tag=new_team_spawn] run scoreboard players operation @s team_id = #join_team team_id
-execute as @e[type=minecraft:marker,tag=new_team_spawn] at @s run function nbs:rtp/do_spread
-tag @e[type=minecraft:marker,tag=new_team_spawn] remove new_team_spawn
-
-# วาร์ปผู้เล่นไปยังจุดเกิดของทีมตัวเอง
-tp @s @e[type=minecraft:marker,tag=target_team_spawn,limit=1]
-tag @e[type=minecraft:marker,tag=target_team_spawn] remove target_team_spawn
+# ดึง team_id ของผู้เล่นมาตรวจสอบและวาร์ปไปยังพิกัดจุดเกิดของทีม (เก็บใน storage nbs:game team_spawn)
+execute store result storage nbs:temp jts.team int 1 run scoreboard players get @s team_id
+function nbs:rtp/ensure_team_spawn with storage nbs:temp jts
 
 # ลบสมุดเลือกทีมออกจากตัว แจกธงอาณาเขตประจำทีม (1 ต้น) และแจกสมุดคู่มือ 1 เล่ม
 clear @s minecraft:written_book[custom_data={team_book:1b}]

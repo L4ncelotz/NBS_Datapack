@@ -27,9 +27,9 @@ scoreboard objectives add flag_x dummy
 scoreboard objectives add flag_y dummy
 scoreboard objectives add flag_z dummy
 
-# สร้างตัวปักหมุดจุด Spawn (ถ้ายังไม่มีในโลก)
-# หมายเหตุ: หากต้องการย้ายจุด Spawn ใหม่ ให้พิมพ์ /kill @e[tag=spawn_anchor] แล้วใช้คำสั่ง /summon minecraft:marker ~ ~ ~ {Tags:["spawn_anchor"]} ตรงจุดเกิดใหม่
-execute unless entity @e[tag=spawn_anchor] run summon minecraft:marker 0 64 0 {Tags:["spawn_anchor"]}
+# สร้างตัวปักหมุดจุด Spawn และลานป้อมปราการ The Citadel (ถ้ายังไม่มีในโลก)
+# หมายเหตุ: หากต้องการสร้างลาน The Citadel ใหม่ที่ (0,0) ให้พิมพ์ /function nbs:spawn/build_citadel
+execute unless entity @e[tag=spawn_anchor] run function nbs:spawn/build_citadel
 
 # ติดตั้ง Bossbar สำหรับระบบ Random Boost Quest (เควสด่วน)
 bossbar add nbs:flash_quest {"text":"⚡ เควสด่วน","color":"gold","bold":true}
