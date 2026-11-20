@@ -1,1 +1,0 @@
-function nbs:scoreboard/sum_chest_items

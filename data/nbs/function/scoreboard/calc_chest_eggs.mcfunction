@@ -1,1 +1,0 @@
-function nbs:scoreboard/calc_chest_items

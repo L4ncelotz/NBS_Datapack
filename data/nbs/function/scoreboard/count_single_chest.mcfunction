@@ -9,21 +9,37 @@ scoreboard players set #chest_owner team_id 0
 execute if entity @e[type=minecraft:marker,tag=flag_anchor,distance=..32] run scoreboard players operation #chest_owner team_id = @e[type=minecraft:marker,tag=flag_anchor,distance=..32,sort=nearest,limit=1] team_id
 
 # ลำดับ 2: ถ้าอยู่นอกเขตธง ให้ตรวจจากชื่อที่ตั้งที่ Anvil (เช่น "Team 1", "ทีม 1")
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"Team 1"} run scoreboard players set #chest_owner team_id 1
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"ทีม 1"} run scoreboard players set #chest_owner team_id 1
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"Team 1"}} run scoreboard players set #chest_owner team_id 1
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"ทีม 1"}} run scoreboard players set #chest_owner team_id 1
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"Team 1"'} run scoreboard players set #chest_owner team_id 1
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"ทีม 1"'} run scoreboard players set #chest_owner team_id 1
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'{"text":"Team 1"}'} run scoreboard players set #chest_owner team_id 1
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'{"text":"ทีม 1"}'} run scoreboard players set #chest_owner team_id 1
 
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"Team 2"} run scoreboard players set #chest_owner team_id 2
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"ทีม 2"} run scoreboard players set #chest_owner team_id 2
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"Team 2"}} run scoreboard players set #chest_owner team_id 2
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"ทีม 2"}} run scoreboard players set #chest_owner team_id 2
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"Team 2"'} run scoreboard players set #chest_owner team_id 2
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"ทีม 2"'} run scoreboard players set #chest_owner team_id 2
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'{"text":"Team 2"}'} run scoreboard players set #chest_owner team_id 2
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'{"text":"ทีม 2"}'} run scoreboard players set #chest_owner team_id 2
 
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"Team 3"} run scoreboard players set #chest_owner team_id 3
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"ทีม 3"} run scoreboard players set #chest_owner team_id 3
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"Team 3"}} run scoreboard players set #chest_owner team_id 3
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"ทีม 3"}} run scoreboard players set #chest_owner team_id 3
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"Team 3"'} run scoreboard players set #chest_owner team_id 3
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"ทีม 3"'} run scoreboard players set #chest_owner team_id 3
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'{"text":"Team 3"}'} run scoreboard players set #chest_owner team_id 3
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'{"text":"ทีม 3"}'} run scoreboard players set #chest_owner team_id 3
 
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"Team 4"} run scoreboard players set #chest_owner team_id 4
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:"ทีม 4"} run scoreboard players set #chest_owner team_id 4
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"Team 4"}} run scoreboard players set #chest_owner team_id 4
+execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:{text:"ทีม 4"}} run scoreboard players set #chest_owner team_id 4
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"Team 4"'} run scoreboard players set #chest_owner team_id 4
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'"ทีม 4"'} run scoreboard players set #chest_owner team_id 4
 execute if score #chest_owner team_id matches 0 if data block ~ ~ ~ {CustomName:'{"text":"Team 4"}'} run scoreboard players set #chest_owner team_id 4

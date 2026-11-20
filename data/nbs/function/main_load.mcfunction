@@ -1,7 +1,12 @@
 say Welcome
+function nbs:scoreboard/score_setup
 function nbs:team/team_setup
 function nbs:border/border_setup
-function nbs:scoreboard/score_setup
+
+# สร้าง Scoreboard ระบบสถานะเกมและเลือกทีม
+scoreboard objectives add game_state dummy
+scoreboard objectives add join_team trigger
+scoreboard players add #game_state game_state 0
 
 # สร้าง Scoreboard ตรวจจับการวางธงสีขาว (ใช้เป็นธงอาณาเขตหลัก)
 scoreboard objectives add place_flag minecraft.used:minecraft.white_banner

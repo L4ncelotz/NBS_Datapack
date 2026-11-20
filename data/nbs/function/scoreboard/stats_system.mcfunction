@@ -19,32 +19,32 @@ scoreboard players set @a raw_win_raid 0
 # ==========================================
 # 2. คำนวณคะแนนของแต่ละหัวข้อ (จำนวนตัว x คะแนนต่อตัว)
 # ==========================================
-# Ender Dragon (ตัวละ 100 แต้ม)
+# Ender Dragon (ตัวละ 50 แต้ม)
 execute as @a run scoreboard players operation @s pts_dragon = @s stat_dragon
 scoreboard players set #mult item_value 50
 execute as @a run scoreboard players operation @s pts_dragon *= #mult item_value
 
-# Wither (ตัวละ 25 แต้ม - แก้ตัวเลขตรงนี้ได้ตามต้องการ)
+# Wither (ตัวละ 25 แต้ม)
 execute as @a run scoreboard players operation @s pts_wither = @s stat_wither
 scoreboard players set #mult item_value 25
 execute as @a run scoreboard players operation @s pts_wither *= #mult item_value
 
-# Warden (ตัวละ 80 แต้ม)
+# Warden (ตัวละ 15 แต้ม)
 execute as @a run scoreboard players operation @s pts_warden = @s stat_warden
 scoreboard players set #mult item_value 15
 execute as @a run scoreboard players operation @s pts_warden *= #mult item_value
 
-# Elder Guardian (ตัวละ 50 แต้ม)
+# Elder Guardian (ตัวละ 10 แต้ม)
 execute as @a run scoreboard players operation @s pts_elder = @s stat_elder
 scoreboard players set #mult item_value 10
 execute as @a run scoreboard players operation @s pts_elder *= #mult item_value
 
-# Illager Raid (รอบละ 15 แต้ม ตามคู่มือ)
+# Illager Raid (รอบละ 7 แต้ม)
 execute as @a run scoreboard players operation @s pts_raid = @s stat_raid
 scoreboard players set #mult item_value 7
 execute as @a run scoreboard players operation @s pts_raid *= #mult item_value
 
-# Ominous Trial Chamber (รอบละ 30 แต้ม ตามคู่มือ)
+# Ominous Trial Chamber (รอบละ 15 แต้ม)
 execute as @a run scoreboard players operation @s pts_trial = @s stat_trial
 scoreboard players set #mult item_value 15
 execute as @a run scoreboard players operation @s pts_trial *= #mult item_value
@@ -54,11 +54,5 @@ execute as @a run scoreboard players operation @s pts_trial *= #mult item_value
 # ==========================================
 scoreboard players enable @a view_stats
 
-execute as @a[scores={view_stats=1..}] run tellraw @s {"text":"========================================","color":"dark_gray","bold":true}
-execute as @a[scores={view_stats=1..}] run tellraw @s {"text":" 📖 สมุดบันทึกสถิติการผจญภัย NBs SMP","color":"gold","bold":true}
-execute as @a[scores={view_stats=1..}] run tellraw @s {"text":"========================================","color":"dark_gray","bold":true}
-
-execute if entity @a[scores={view_stats=1..}] as @a run function nbs:scoreboard/print_player_stats
-
-execute as @a[scores={view_stats=1..}] run tellraw @s {"text":"========================================","color":"dark_gray","bold":true}
+execute as @a[scores={view_stats=1..}] run function nbs:scoreboard/show_stats_book
 scoreboard players set @a[scores={view_stats=1..}] view_stats 0

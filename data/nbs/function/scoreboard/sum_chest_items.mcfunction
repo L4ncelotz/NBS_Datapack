@@ -9,11 +9,11 @@ execute if data storage nbs:temp CurrentItem{id:"minecraft:dragon_egg"} if score
 execute if data storage nbs:temp CurrentItem{id:"minecraft:dragon_egg"} if score #slot_count item_count matches 0 run scoreboard players set #slot_count item_count 1
 scoreboard players operation #egg_in_chest item_count += #slot_count item_count
 
-# 3. ตรวจสอบป้ายชื่อ (Name Tag: 5 คะแนน)
+# 3. ตรวจสอบป้ายชื่อคะแนน (Name Tag ที่มี score_tag:1b เท่านั้น: 5 คะแนน)
 scoreboard players set #slot_count item_count 0
-execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag"} store result score #slot_count item_count run data get storage nbs:temp CurrentItem.count
-execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag"} if score #slot_count item_count matches 0 store result score #slot_count item_count run data get storage nbs:temp CurrentItem.Count
-execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag"} if score #slot_count item_count matches 0 run scoreboard players set #slot_count item_count 1
+execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag",components:{"minecraft:custom_data":{score_tag:1b}}} store result score #slot_count item_count run data get storage nbs:temp CurrentItem.count
+execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag",components:{"minecraft:custom_data":{score_tag:1b}}} if score #slot_count item_count matches 0 store result score #slot_count item_count run data get storage nbs:temp CurrentItem.Count
+execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag",components:{"minecraft:custom_data":{score_tag:1b}}} if score #slot_count item_count matches 0 run scoreboard players set #slot_count item_count 1
 scoreboard players operation #nametag_in_chest item_count += #slot_count item_count
 
 # 4. หากยังมีไอเทมเหลือในกล่อง ให้ทำซ้ำช่องถัดไปจนหมด

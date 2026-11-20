@@ -40,6 +40,7 @@ scoreboard objectives add raw_kill_elder minecraft.killed:minecraft.elder_guardi
 scoreboard objectives add raw_win_raid minecraft.custom:minecraft.raid_win
 scoreboard objectives add player_kills playerKillCount
 scoreboard objectives add player_deaths deathCount
+scoreboard objectives add killed_by_player minecraft.killed_by:minecraft.player
 scoreboard objectives add death_track deathCount
 scoreboard objectives add time_since_death minecraft.custom:minecraft.time_since_death
 scoreboard objectives add rnd_temp dummy
