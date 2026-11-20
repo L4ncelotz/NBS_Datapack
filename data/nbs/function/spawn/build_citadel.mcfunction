@@ -1,6 +1,7 @@
 # ==========================================
 # สร้างหมุดจุดเกิดและลานป้อมปราการ The Citadel (0, 0) บนพื้นผิวจริงอัตโนมัติ
 # ==========================================
+forceload add -16 -16 16 16
 kill @e[tag=spawn_anchor]
 kill @e[type=minecraft:text_display,tag=citadel_title]
 

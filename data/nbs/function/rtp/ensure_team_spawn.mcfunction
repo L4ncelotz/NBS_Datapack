@@ -1,10 +1,6 @@
-# ตรวจว่าทีม $(team) มีพิกัดจุดเกิดใน storage หรือยัง ถ้ายังไม่มีให้สุ่มและบันทึกพิกัด X, Y, Z เก็บถาวร (ไม่หายแม้ Chunk Unload)
-$execute unless data storage nbs:game team_spawn.t$(team) run summon minecraft:marker 0 100 0 {Tags:["new_team_spawn"]}
-execute as @e[type=minecraft:marker,tag=new_team_spawn,limit=1] at @s run function nbs:rtp/do_spread
-$execute if entity @e[type=minecraft:marker,tag=new_team_spawn] store result storage nbs:game team_spawn.t$(team).x int 1 run data get entity @e[type=minecraft:marker,tag=new_team_spawn,limit=1] Pos[0]
-$execute if entity @e[type=minecraft:marker,tag=new_team_spawn] store result storage nbs:game team_spawn.t$(team).y int 1 run data get entity @e[type=minecraft:marker,tag=new_team_spawn,limit=1] Pos[1]
-$execute if entity @e[type=minecraft:marker,tag=new_team_spawn] store result storage nbs:game team_spawn.t$(team).z int 1 run data get entity @e[type=minecraft:marker,tag=new_team_spawn,limit=1] Pos[2]
-kill @e[type=minecraft:marker,tag=new_team_spawn]
+# ตรวจว่าทีม $(team) มีพิกัดจุดเกิดใน storage หรือยัง:
+# - ถ้ามีแล้ว (สมาชิกคนที่ 2, 3, 4 หรือคนเข้าทีหลัง) -> วาร์ปไปพิกัดจุดเกิดทีมเดิมทันที
+$execute if data storage nbs:game team_spawn.t$(team) run function nbs:rtp/tp_coords with storage nbs:game team_spawn.t$(team)
 
-# วาร์ปผู้เล่นไปยังพิกัดจุดเกิดของทีมตัวเอง
-$function nbs:rtp/tp_coords with storage nbs:game team_spawn.t$(team)
+# - ถ้ายังไม่มี (สมาชิกคนแรกของทีม) -> สุ่มวาร์ปผู้เล่น (@s) ไปในป่าโดยตรงแล้วบันทึกพิกัดของ @s เก็บไว้ให้เพื่อนร่วมทีม
+$execute unless data storage nbs:game team_spawn.t$(team) run function nbs:rtp/init_team_spawn {team:$(team)}

@@ -7,16 +7,14 @@ scoreboard objectives add death_track deathCount
 scoreboard objectives add player_hp health
 scoreboard objectives add rnd_temp dummy
 
-# 1. การเข้าเกมครั้งแรกและการเลือกทีมจัดการโดย nbs:game/game_system (Waiting Lobby -> Team Spawn)
+# 1. เมื่อผู้เล่นที่มีแท็ก just_died "กดปุ่มเกิดใหม่แล้ว" (@e[type=minecraft:player] จะจับเฉพาะตัวละครที่มีชีวิตแล้วเท่านั้น ไม่จับตอนค้างหน้าจอ You Died!)
+# 1.1 กรณีกลับมาเกิดในเขต Spawn กลาง (0, 0) เพราะไม่มีเตียง/Respawn Anchor:
+execute if score #game_state game_state matches 1 at @e[tag=spawn_anchor] positioned ~-86 -64 ~-86 as @e[type=minecraft:player,tag=just_died,dx=172,dy=384,dz=172] at @s run function nbs:rtp/respawn_rtp
+execute if score #game_state game_state matches 0 at @e[tag=spawn_anchor] positioned ~-86 -64 ~-86 as @e[type=minecraft:player,tag=just_died,dx=172,dy=384,dz=172] run tag @s remove just_died
 
-# 2. บันทึกผู้เล่นที่เพิ่งตาย (เมื่อตายให้ติดแท็ก just_died)
+# 1.2 กรณีเกิดที่เตียง/Respawn Anchor (มีชีวิตแล้วและอยู่นอกเขต Spawn กลาง) -> ปลดแท็กทิ้ง ให้อยู่ที่เตียงตามปกติ
+execute as @e[type=minecraft:player,tag=just_died] run tag @s remove just_died
+
+# 2. บันทึกผู้เล่นที่เพิ่งตายใน Tick นี้ (เมื่อตายให้ติดแท็ก just_died รอจนกว่าจะกดปุ่มเกิดใหม่)
 execute as @a[scores={death_track=1..}] run tag @s add just_died
 scoreboard players set @a[scores={death_track=1..}] death_track 0
-
-# 3. เมื่อผู้เล่น "กดปุ่มเกิดใหม่แล้ว" (player_hp >= 1 แปลว่าคืนชีพแล้ว ไม่ได้ค้างอยู่หน้าจอ You Died!):
-# 3.1 กรณีเกิดที่เตียง/Respawn Anchor (อยู่นอกเขต Spawn กลาง) -> ปลดแท็กทิ้ง ให้อยู่ที่เตียงตามปกติ
-execute as @a[tag=just_died,tag=!in_spawn,scores={player_hp=1..}] run tag @s remove just_died
-
-# 3.2 กรณีเกิดที่ Spawn กลางหลังเกมเริ่มแล้ว (ไม่มีเตียง) -> สุ่มวาร์ปกระจายตัวเข้าป่า 5,000 บล็อกทันที!
-execute if score #game_state game_state matches 1 as @a[tag=just_died,tag=in_spawn,scores={player_hp=1..}] at @s run function nbs:rtp/respawn_rtp
-execute if score #game_state game_state matches 0 as @a[tag=just_died,tag=in_spawn,scores={player_hp=1..}] run tag @s remove just_died

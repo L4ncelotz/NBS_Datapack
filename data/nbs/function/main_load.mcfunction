@@ -31,9 +31,13 @@ scoreboard objectives add flag_x dummy
 scoreboard objectives add flag_y dummy
 scoreboard objectives add flag_z dummy
 
+# บังคับโหลด Chunk จุดศูนย์กลาง (0, 0) ตลอดเวลา (ป้องกันหมุด spawn_anchor หายเมื่อผู้เล่นทุกคนวาร์ปออกนอกเมือง)
+forceload add -16 -16 16 16
+
 # สร้างตัวปักหมุดจุด Spawn และลานป้อมปราการ The Citadel (ถ้ายังไม่มีในโลก)
 # หมายเหตุ: หากต้องการสร้างลาน The Citadel ใหม่ที่ (0,0) ให้พิมพ์ /function nbs:spawn/build_citadel
-execute unless entity @e[tag=spawn_anchor] run function nbs:spawn/build_citadel
+execute unless entity @e[type=minecraft:text_display,tag=citadel_title] run function nbs:spawn/build_citadel
+execute at @e[tag=spawn_anchor,limit=1] run setworldspawn ~ ~ ~
 
 # ติดตั้ง Bossbar สำหรับระบบ Random Boost Quest (เควสด่วน)
 bossbar add nbs:flash_quest {"text":"⚡ เควสด่วน","color":"gold","bold":true}
