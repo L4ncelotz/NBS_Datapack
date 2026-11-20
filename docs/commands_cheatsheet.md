@@ -1,0 +1,30 @@
+# ⚡ NBs SMP — Command Cheatsheet (คู่มือฉบับย่อสำหรับแปะใน Discord)
+
+ไม่ต้องจำคำสั่งเยอะครับ! **ผู้เล่นทั่วไปจำแค่ 4 คำสั่งสั้นๆ** ที่เหลือคลิกปุ่มในแชต/สมุดได้เลย:
+
+## 🙋‍♂️ คำสั่งสำหรับผู้เล่น (4 คำสั่ง)
+* **`/trigger citadel`** — เปิดเมนู **The Citadel `(0, 0)`** *(ซื้อธงอาณาเขตเพิ่ม, ฝากเพชรธนาคารทีม, ส่งเควส 16 ใบ, ส่งเควสด่วน Bossbar)*
+* **`/trigger career`** — เปิดเมนู **เลือกสายอาชีพ** *(Farmer / Blacksmith / Monster Hunter / Adventurer)* & ดูสรุปคะแนนเช็กลิสต์ทีม
+* **`/trigger check_flag`** — ดูพิกัด **ธงอาณาเขต** ของทีมตัวเอง
+* **`/trigger view_stats`** — ดู **สมุดสถิติ** บอส & อีเวนต์
+
+*(ช่วง Waiting Lobby มี **สมุดเลือกทีม** แจกให้อัตโนมัติ คลิกขวาเปิดสมุดแล้วกดเลือกทีมได้เลย ไม่ต้องพิมพ์คำสั่ง)*
+
+---
+
+## 🛡️ คำสั่งสำหรับแอดมิน (5 คำสั่งหลัก + คำสั่งเสริม)
+
+### คำสั่งคุมเกมประจำวัน
+* `/function nbs:game/start` — เริ่มเกม, สุ่มวาร์ปแยกทีม, แจกธงต้นแรก
+* `/function nbs:game/raid_on` — เปิด **Raid Day** (เปิดดรอปป้ายชื่อ PvP +15)
+* `/function nbs:game/raid_off` — ปิด **Raid Day** (กลับสู่ช่วงปกติ)
+* `/function nbs:citadel/start_flash_quest` — สุ่มเปิด **เควสด่วน Bossbar** ทันที
+* `/function nbs:game/reset` — รีเซ็ตซีซันกลับ Lobby `(0, 0)`
+
+### คำสั่งจัดการทีมและทดสอบ
+* `/team join team_1 <ชื่อผู้เล่น>` (เปลี่ยนเป็น `team_1` ถึง `team_4`)
+* `/team modify team_1 color <สี>` / `prefix {"text":"[ชื่อทีม] ","color":"<สี>"}`
+* `/function nbs:territory/give_flag` — เสกธงอาณาเขตประจำทีม 1 ต้น
+* `/function nbs:kill_reward/give_nametag` — เสกป้ายชื่อคะแนน (+15) 1 ชิ้น
+* `/tag <ชื่อผู้เล่น> add admin` — ให้สิทธิ์แอดมินทุบ/วางบล็อกใน The Citadel `(0, 0)`
+* `/reload` — รีโหลด Datapack
