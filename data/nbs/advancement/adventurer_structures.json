@@ -2,67 +2,67 @@
   "criteria": {
     "village": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "#minecraft:village" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "#minecraft:village" } } } }
     },
     "desert_pyramid": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:desert_pyramid" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:desert_pyramid" } } } }
     },
     "jungle_pyramid": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:jungle_pyramid" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:jungle_pyramid" } } } }
     },
     "shipwreck": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "#minecraft:shipwreck" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "#minecraft:shipwreck" } } } }
     },
     "pillager_outpost": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:pillager_outpost" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:pillager_outpost" } } } }
     },
     "igloo": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:igloo" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:igloo" } } } }
     },
     "ruined_portal": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "#minecraft:ruined_portal" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "#minecraft:ruined_portal" } } } }
     },
     "monument": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:monument" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:monument" } } } }
     },
     "fortress": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:fortress" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:fortress" } } } }
     },
     "bastion_remnant": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:bastion_remnant" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:bastion_remnant" } } } }
     },
     "trail_ruins": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:trail_ruins" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:trail_ruins" } } } }
     },
     "trial_chambers": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:trial_chambers" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:trial_chambers" } } } }
     },
     "mansion": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:mansion" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:mansion" } } } }
     },
     "ancient_city": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:ancient_city" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:ancient_city" } } } }
     },
     "stronghold": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:stronghold" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:stronghold" } } } }
     },
     "end_city": {
       "trigger": "minecraft:location",
-      "conditions": { "player": [{ "condition": "minecraft:location_check", "predicate": { "structures": "minecraft:end_city" } }] }
+      "conditions": { "player": { "type": "minecraft:entity_properties", "entity": "this", "predicate": { "minecraft:location": { "structures": "minecraft:end_city" } } } }
     }
   }
 }
