@@ -44,8 +44,12 @@
 
 ---
 
-## 2. ⚔️ ระบบป้ายชื่อคะแนนและการสังหาร (Kill Reward)
-ระบบจะดรอปป้ายชื่อคะแนน (+5 คะแนน) ทันทีเมื่อผู้เล่นสังหารผู้เล่นคนอื่นในโหมด PvP
+## 2. ⚔️ ระบบป้ายชื่อคะแนนและการสังหาร (Kill Reward & Raid Day)
+ระบบจะดรอปป้ายชื่อคะแนน (**+15 คะแนน**) เมื่อผู้เล่นสังหารผู้เล่นคนอื่นในช่วง **Raid Day** (พร้อม Cooldown กันปั๊ม Kill 5 นาทีต่อเหยื่อคนเดิม)
+
+### คำสั่งเปิด/ปิด Raid Day (สำหรับแอดมิน)
+* **เปิด Raid Day:** `/function nbs:game/raid_on`
+* **ปิด Raid Day:** `/function nbs:game/raid_off`
 
 ### คำสั่งเสกป้ายชื่อคะแนน (สำหรับทดสอบ / แอดมิน)
 * **วิธีที่ 1 (แนะนำ - รันผ่านฟังก์ชันสั้น):**
@@ -55,7 +59,7 @@
 
 * **วิธีที่ 2 (พิมพ์คำสั่ง `/give` โดยตรง):**
   ```mcfunction
-  /give @s minecraft:name_tag[custom_data={score_tag:1b},custom_name={text:"ป้ายชื่อคะแนน (+5)",color:"gold",bold:true,italic:false},lore=[{text:"ได้รับจากการสังหารผู้เล่น",color:"gray",italic:false},{text:"มูลค่า 5 คะแนน",color:"yellow",italic:false},{text:"⚠️ ห้ามซ่อนใน Ender Chest",color:"red",italic:false}]] 1
+  /give @s minecraft:name_tag[custom_data={score_tag:1b},custom_name={text:"ป้ายชื่อคะแนน (+15)",color:"gold",bold:true,italic:false},lore=[{text:"ได้รับจากการสังหารผู้เล่น (Raid Day)",color:"gray",italic:false},{text:"มูลค่า 15 คะแนน",color:"yellow",italic:false},{text:"⚠️ ห้ามซ่อนใน Ender Chest",color:"red",italic:false}]] 1
   ```
 
 ---
@@ -136,22 +140,32 @@
 
 ## 6. 📊 ระบบตารางคะแนนและสถิติ (Scoreboard & Stats)
 
-### คำสั่งสำหรับผู้เล่น
+### คำสั่งสำหรับผู้เล่น (The Citadel & สายอาชีพ)
+* **เปิดเมนู The Citadel `(0, 0)` (ซื้อธง 32 เพชร / ฝากเพชร / ส่งเควส 16 ใบ):**
+  ```mcfunction
+  /trigger citadel set 1
+  ```
+* **เปิดเมนูเลือกสายอาชีพ (Farmer / Blacksmith / Monster Hunter / Adventurer):**
+  ```mcfunction
+  /trigger career set 99
+  ```
 * **เปิดดูสมุดบันทึกสถิติ (Stats Book):**
   ```mcfunction
   /trigger view_stats
   ```
-  *(แสดงจำนวนการปราบบอส Dragon, Wither, Warden, Elder, Raid, Trial และคะแนนรวมทั้งหมด)*
+  *(แสดงจำนวนการปราบบอส Dragon, Wither, Warden, Elder, Raid, Trial และคะแนนส่วนตัว)*
 
-### กฎการคิดคะแนน
-* **ป้ายชื่อคะแนนในตัว / ในกล่องของทีม:** ชิ้นละ **5** คะแนน
-* **ไข่มังกรในตัว / ในกล่องของทีม:** ชิ้นละ **100** คะแนน
-* **Ender Dragon:** ตัวละ **50** คะแนน
-* **Wither:** ตัวละ **25** คะแนน
-* **Warden:** ตัวละ **15** คะแนน
-* **Elder Guardian:** ตัวละ **10** คะแนน
-* **Illager Raid:** รอบละ **7** คะแนน
-* **Ominous Trial Chamber:** รอบละ **15** คะแนน
+### กฎการคิดคะแนน (V2 พร้อม Hard Cap ต่อทีม)
+* **ไข่มังกร (Dragon Egg) ในตัว / ในกล่องทีม:** ฟองละ **150** คะแนน
+* **Nether Star ในตัว / ในกล่องทีม:** ดวงละ **30** คะแนน (**Cap สูงสุด 5 ดวง/ทีม = 150 คะแนน**)
+* **ป้ายชื่อคะแนน PvP ในตัว / ในกล่องทีม:** ชิ้นละ **15** คะแนน
+* **Warden:** ตัวละ **45** คะแนน (**Cap 4 ตัว/ทีม = 180 คะแนน**)
+* **Ominous Trial Chamber:** รอบละ **30** คะแนน (**Cap 5 รอบ/ทีม = 150 คะแนน**)
+* **Elder Guardian:** ตัวละ **20** คะแนน (**Cap 6 ตัว/ทีม = 120 คะแนน**)
+* **Illager Raid:** รอบละ **15** คะแนน (**Cap 10 รอบ/ทีม = 150 คะแนน**)
+* **โบนัสพิเศษ:** **Top Killer #1 (+80) / #2 (+40)** และ **The Wealthiest ธนาคารเพชรอันดับ 1 (+80)**
+* **เควส The Citadel (16 ใบ, 1 ครั้ง/ทีม):** Rank D (**25**), Rank C (**45**), Rank B (**60**), Rank A (**70**)
+* **Milestones & Hard Advancements (1 ครั้ง/ทีม):** คำนวณอัตโนมัติตามระดับ (**15–150** คะแนน)
 
 ### 📦 ระบบกล่องคะแนนแยกทีม (Team Chest Scoring)
 คะแนนของไอเทมในกล่อง/ถังจะคำนวณเข้าทีมที่เป็นเจ้าของกล่องนั้นทันที (หากผู้เล่นทีมอื่นแอบเอาป้ายชื่อ/ไข่มังกรมาใส่ในกล่องของทีมใด ทีมเจ้าของกล่องนั้นจะได้รับคะแนนไปทันที):
@@ -188,8 +202,8 @@
 
 ## 7. 🚫 ระบบป้องกัน Ender Chest (Anti-Enderchest)
 ระบบจะตรวจจับช่อง Ender Chest ของผู้เล่นทุกคนตลอดเวลา:
-* หากมี **ไข่มังกร (`minecraft:dragon_egg`)** หรือ **ป้ายชื่อคะแนน (`score_tag:1b`)** อยู่ใน Ender Chest
-* ตัวไอเทมจะถูกดีดหล่นลงพื้นตรงเท้าของผู้เล่นทันที พร้อมส่ง Actionbar เตือนสีแดง
+* หากมี **ไข่มังกร (`minecraft:dragon_egg`)**, **Nether Star (`minecraft:nether_star`)**, หรือ **ป้ายชื่อคะแนน (`score_tag:1b`)** อยู่ใน Ender Chest
+* ตัวไอเทมจะถูกดีดหล่นลงพื้นตรงเท้าของผู้เล่นทีละช่องทันที พร้อมส่ง Actionbar เตือนสีแดง
 
 ---
 

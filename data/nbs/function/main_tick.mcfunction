@@ -1,6 +1,8 @@
-# 0. ระบบทีมและสถานะเกม (Lobby -> Start -> Late Join)
+# 0. ระบบทีม, สถานะเกม, The Citadel และสายอาชีพ
 function nbs:team/team_system
 function nbs:game/game_system
+function nbs:citadel/citadel_system
+function nbs:career/career_system
 
 # 1. ระบบจุดเกิดและพื้นที่ปลอดภัย (Spawn Zone)
 function nbs:spawn/spawn_system

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NBs SMP — Scoring & Career System Overview</title>
+  <style>
+    :root {
+      --bg: #0f131a;
+      --surface: #171d27;
+      --surface-2: #1f2735;
+      --border: #2c374b;
+      --text: #e6edf7;
+      --muted: #9aa7bd;
+      --gold: #f5b942;
+      --green: #4ade80;
+      --blue: #60a5fa;
+      --red: #f87171;
+      --purple: #c084fc;
+      --cyan: #22d3ee;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px 16px 64px;
+    }
+    .container { max-width: 1120px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1b2434 0%, #141a24 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    header h1 { font-size: 1.75rem; color: var(--gold); margin-bottom: 6px; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+    .badge strong { color: var(--gold); }
+
+    h2 {
+      font-size: 1.2rem;
+      margin: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+
+    .ratio-bar {
+      display: flex;
+      height: 36px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin: 12px 0;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .ratio-career { width: 45%; background: #15803d; display: flex; align-items: center; justify-content: center; }
+    .ratio-boss { width: 35%; background: #7e22ce; display: flex; align-items: center; justify-content: center; }
+    .ratio-pvp { width: 20%; background: #b91c1c; display: flex; align-items: center; justify-content: center; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; }
+    tr:last-child td { border-bottom: none; }
+    .pts { font-weight: 700; color: var(--gold); white-space: nowrap; }
+    .cap-tag {
+      display: inline-block;
+      background: rgba(96, 165, 250, 0.14);
+      color: var(--blue);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .steal-tag {
+      display: inline-block;
+      background: rgba(248, 113, 113, 0.14);
+      color: var(--red);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .tab-btn {
+      background: var(--surface-2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .tab-btn:hover { color: #fff; border-color: #475569; }
+    .tab-btn.active {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .perk-box {
+      background: var(--surface-2);
+      border-left: 4px solid var(--cyan);
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+    }
+    .warn-box {
+      background: rgba(245, 185, 66, 0.08);
+      border: 1px solid rgba(245, 185, 66, 0.3);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      color: #fde68a;
+      margin-top: 10px;
+    }
+
+    .sim-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    .sim-row input[type="range"] { flex: 1; accent-color: var(--gold); }
+    .sim-total {
+      background: var(--surface-2);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-top: 12px;
+    }
+    .sim-total .big { font-size: 2rem; font-weight: 800; color: var(--gold); }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div>
+      <h1>⚔️ NBs SMP — Balanced Scoring Blueprint (V2)</h1>
+      <p>โครงสร้างคะแนนและสายอาชีพสำหรับซีซัน 2–4 สัปดาห์ (ปรับสมดุลหลัง 3 Agents Review)</p>
+    </div>
+    <div class="badges">
+      <span class="badge">👥 <strong>4 ทีม</strong> (นับคะแนนรวมทีม)</span>
+      <span class="badge">🎯 <strong>1 คน / 1 อาชีพ</strong></span>
+      <span class="badge">🚫 <strong>ห้ามซ่อนของใน Ender Chest</strong></span>
+    </div>
+  </header>
+
+  <div class="card">
+    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+      <strong>📊 สัดส่วนน้ำหนักคะแนนตลอดซีซัน (เป้าหมายทีมแชมป์ ~1,500–2,000 แต้ม)</strong>
+      <span class="muted">สาย PVE ชนะได้ถ้าขยัน • วัน Raid Day พลิกเกมได้</span>
+    </div>
+    <div class="ratio-bar">
+      <div class="ratio-career">สายอาชีพ + เควส ~45%</div>
+      <div class="ratio-boss">บอส + อีเวนต์ + ของชิงชัย ~35%</div>
+      <div class="ratio-pvp">PvP + เพชร ~20%</div>
+    </div>
+    <div class="warn-box">
+      <strong>กฎเหล็ก 4 ข้อกันระบบพัง:</strong> (1) บอส/อีเวนต์ที่ฟาร์มได้ต้องมี Hard Cap ต่อทีม • (2) ของสะสมในโลกใช้ระบบ Cap (เช่น 10/18 Trims, 12/23 Sherds) • (3) ห้ามเก็บ Dragon Egg / Nether Star / ป้ายชื่อใน Ender Chest • (4) ของคราฟต์เช็กจาก <code>recipe_crafted</code> กันโยนของวนในทีม
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>🐉 บอส, อีเวนต์ &amp; ของชิงชัย (~35%)</h2>
+      <table>
+        <thead>
+          <tr><th>รายการ</th><th>คะแนน</th><th>กติกา / Cap ต่อทีม</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dragon Egg</strong></td>
+            <td class="pts">150 แต้ม</td>
+            <td><span class="steal-tag">ขโมยได้</span> มี 1 ฟองในโลก</td>
+          </tr>
+          <tr>
+            <td><strong>Nether Star (Wither)</strong></td>
+            <td class="pts">30 / ดวง</td>
+            <td><span class="steal-tag">ขโมยได้</span> <span class="cap-tag">Cap 5 ดวง (150)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Warden</strong></td>
+            <td class="pts">45 / ตัว</td>
+            <td><span class="cap-tag">Cap 4 ตัว (180)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ominous Trial Chamber</strong></td>
+            <td class="pts">30 / รอบ</td>
+            <td><span class="cap-tag">Cap 5 รอบ (150)</span> ไข Ominous Vault</td>
+          </tr>
+          <tr>
+            <td><strong>Elder Guardian</strong></td>
+            <td class="pts">20 / ตัว</td>
+            <td><span class="cap-tag">Cap 6 ตัว (120)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Illager Raid</strong></td>
+            <td class="pts">15 / รอบ</td>
+            <td><span class="cap-tag">Cap 10 รอบ (150)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>⚔️ PvP (Raid Day) &amp; ความมั่งคั่ง (~20%)</h2>
+      <table>
+        <thead>
+          <tr><th>รายการ</th><th>คะแนน</th><th>เงื่อนไข</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ป้ายชื่อ PvP (Bounty)</strong></td>
+            <td class="pts">15 / หัว</td>
+            <td><span class="steal-tag">ขโมยได้</span> เปิดเฉพาะ Raid Day + Cooldown กันปั๊ม</td>
+          </tr>
+          <tr>
+            <td><strong>Top Killer อันดับ 1</strong></td>
+            <td class="pts">+80 แต้ม</td>
+            <td>โบนัสสรุปจบซีซัน</td>
+          </tr>
+          <tr>
+            <td><strong>Top Killer อันดับ 2</strong></td>
+            <td class="pts">+40 แต้ม</td>
+            <td>โบนัสสรุปจบซีซัน</td>
+          </tr>
+          <tr>
+            <td><strong>The Wealthiest (เพชร)</strong></td>
+            <td class="pts">+80 แต้ม</td>
+            <td>ฝากเข้าธนาคารเพชรทีม (ไม่กิน TPS)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="warn-box" style="margin-top:16px;">
+        <strong>💡 ทำไมต้องธนาคารเพชร?</strong> เพื่อไม่ให้ผู้เล่นดองเพชรไว้ในกล่องจนไม่กล้าคราฟต์ของ และไม่ต้องสแกน Chest/Inventory เพื่อนับเพชรทุก Tick
+      </div>
+    </div>
+  </div>
+
+  <h2>🛠️ 4 สายอาชีพ (1 คนเลือก 1 อาชีพ • เพดาน ~700–850 แต้ม/สาย)</h2>
+  <div class="card">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('farmer', this)">🌾 เกษตรกร (Farmer)</button>
+      <button class="tab-btn" onclick="showTab('blacksmith', this)">⚒️ ช่างตีเหล็ก (Blacksmith)</button>
+      <button class="tab-btn" onclick="showTab('hunter', this)">⚔️ นักล่ามอนสเตอร์ (Hunter)</button>
+      <button class="tab-btn" onclick="showTab('adventurer', this)">🧭 นักผจญภัย (Adventurer)</button>
+    </div>
+
+    <div id="farmer" class="tab-panel active">
+      <div class="perk-box">
+        <strong>✨ Passive Perk:</strong> ได้ <code>Haste I + Saturation</code> เฉพาะตอนถือจอบ (Hoe) ใน <strong>Main-hand</strong> เท่านั้น (กันเอาไปถือ Off-hand ขุดเหมือง)
+      </div>
+      <table>
+        <thead><tr><th>หมวด</th><th>รายละเอียด</th><th>คะแนน</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Plants (พืช)</strong></td><td>Common 3 / Uncommon 5 / Rare 10 / Epic (Torchflower, Pitcher) 20</td><td class="pts">~145 แต้ม</td></tr>
+          <tr><td><strong>Trees (ต้นไม้)</strong></td><td>Common 3 / Uncommon 5 / Rare (Cherry, Pale Oak, Mangrove ฯลฯ) 10</td><td class="pts">~74 แต้ม</td></tr>
+          <tr><td><strong>Animals (สัตว์)</strong></td><td>Common 5 → Legendary 50 → Brown Mooshroom 80, Blue Axolotl <strong>50–60</strong> (ลด RNG 1/1200)</td><td class="pts">~300+ แต้ม</td></tr>
+          <tr><td><strong>5 Milestones</strong></td><td>Serious Dedication (25), Complete Catalogue (60), Whole Pack (60), Balanced Diet (70), Two by Two (120)</td><td class="pts">335 แต้ม</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="blacksmith" class="tab-panel">
+      <div class="perk-box">
+        <strong>✨ Passive Perk:</strong> ลดดาเมจไฟ/ลาวา (หรือได้ <code>Fire Resistance</code> ชั่วคราวเมื่อ HP ต่ำกว่า 50%) ไม่ให้โกงใน Nether เกินไป
+      </div>
+      <table>
+        <thead><tr><th>หมวด</th><th>รายละเอียด</th><th>คะแนน</th></tr></thead>
+        <tbody>
+          <tr><td><strong>แร่ (ห้าม Silk Touch)</strong></td><td>Common 3, Gold/Amethyst 10, Diamond/Emerald 20, Netherite 40, Heavy Core 70</td><td class="pts">~190 แต้ม</td></tr>
+          <tr><td><strong>คราฟต์ Masterpiece</strong></td><td>ตรวจด้วย <code>recipe_crafted</code>: Diamond Set 25, Netherite Set 60, Mace 60, Beacon 50</td><td class="pts">195 แต้ม</td></tr>
+          <tr><td><strong>Armor Trims</strong></td><td>ลายทั่วไป 10 / หายาก 25 / Ward 40 / Silence 70 <span class="cap-tag">Cap 10 จาก 18 ลาย</span></td><td class="pts">~250 แต้ม</td></tr>
+          <tr><td><strong>Milestones</strong></td><td>Diamonds! (15), Cover Me with Diamonds (25), Crafting a New Look (25), Cover Me in Debris (50), Over-Overkill (60), Smithing with Style (80)</td><td class="pts">255 แต้ม</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="hunter" class="tab-panel">
+      <div class="perk-box">
+        <strong>✨ Passive Perk:</strong> ได้ <code>Night Vision</code> (15 วิ ไม่กระพริบ) + <code>Strength I</code> เฉพาะเวลาสู้มอนสเตอร์ (PvE)
+      </div>
+      <table>
+        <thead><tr><th>หมวด</th><th>รายละเอียด</th><th>คะแนน</th></tr></thead>
+        <tbody>
+          <tr><td><strong>สมุดล่ามอน (~30 ชนิด)</strong></td><td>Common 5 / Uncommon 10 / Rare 20 / Epic (Wither Skeleton, Vex, Creaking) 35</td><td class="pts">~420 แต้ม</td></tr>
+          <tr><td><strong>ของดรอป &amp; หัวมอน</strong></td><td>Breeze Rod 20, Totem 25, Wither Skull 30, Trident 35, หัว Charged Creeper 30 <span class="cap-tag">Cap 3 หัว</span></td><td class="pts">~200 แต้ม</td></tr>
+          <tr><td><strong>Milestones</strong></td><td>Take Aim (10), Voluntary Exile (15), Return to Sender (25), Hero of the Village (35), Two Birds One Arrow (50), Monsters Hunted (90)</td><td class="pts">225 แต้ม</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="adventurer" class="tab-panel">
+      <div class="perk-box">
+        <strong>✨ Passive Perk:</strong> ได้ <code>Speed I + Dolphin's Grace</code> (ปิดการทำงานอัตโนมัติเมื่อติด Combat Tag โดนผู้เล่นตี กันใช้หนี PvP)
+      </div>
+      <table>
+        <thead><tr><th>หมวด</th><th>รายละเอียด</th><th>คะแนน</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ค้นพบโครงสร้าง (16 แห่ง)</strong></td><td>Village/Temple/Shipwreck 15 • Monument/Fortress/Bastion/Trial 25 • Mansion/Ancient City/End City 45</td><td class="pts">~380 แต้ม</td></tr>
+          <tr><td><strong>Pottery Sherds &amp; แผ่นเพลง</strong></td><td>Sherds 10/ลาย <span class="cap-tag">Cap 12 จาก 23 ลาย</span> • Discs 15–40 • Enchanted Apple/Elytra/Conduit 40–50</td><td class="pts">~280 แต้ม</td></tr>
+          <tr><td><strong>Milestones</strong></td><td>Respecting the Remnants (20), Careful Restoration (25), Hot Tourist Destinations (40), City at the End (40), Adventuring Time (90)</td><td class="pts">215 แต้ม</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- The Citadel & Quests -->
+  <h2>🏰 The Citadel (0, 0) — ซื้อธงอาณาเขต &amp; เควสส่งของกลาง (1 ครั้ง/ทีม)</h2>
+  <div class="card">
+    <div class="perk-box">
+      <strong>🚩 ระบบธงอาณาเขตที่ The Citadel:</strong> ต้นที่ 1 แจกฟรีเมื่อเริ่มเกม • ต้นที่ 2–3 (หรือซื้อทดแทนต้นที่ถูกทำลาย) ต้องพก <strong>เพชร (32 / 64 Diamonds)</strong> วิ่งมาซื้อในเขต <strong>The Citadel (0, 0)</strong> • ส่วนเควสด้านล่างต้องหอบของมายืนส่งที่ The Citadel และจำกัด <strong>เควสละ 1 ครั้งต่อทีม</strong> (แฟร์ทั้งทีม Solo / Duo / Trio / 4 คน)
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>สายเควส</th>
+          <th>🥉 Rank D (25 แต้ม)</th>
+          <th>🥈 Rank C (45 แต้ม)</th>
+          <th>🥇 Rank B (60 แต้ม)</th>
+          <th>💎 Rank A (70 แต้ม)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>🌾 Farmer</strong></td>
+          <td>Hay Bale 16 + Carrot 64 + Potato 64</td>
+          <td>Golden Carrot 32 + Honey Block 4 + Pumpkin Pie 16</td>
+          <td>Cake 8 + Golden Apple 8 + Sea Pickle 16</td>
+          <td>Torchflower 4 + Pitcher Plant 4 + Golden Apple 16</td>
+        </tr>
+        <tr>
+          <td><strong>⚒️ Blacksmith</strong></td>
+          <td>Iron Block 8 + Copper Block 16 + Coal Block 16</td>
+          <td>Gold Block 4 + Diamond 12 + Anvil 2</td>
+          <td>Diamond Block 2 + Netherite Ingot 2 + Amethyst Block 16</td>
+          <td>Netherite Ingot 4 + Lodestone 2 + Tinted Glass 32</td>
+        </tr>
+        <tr>
+          <td><strong>⚔️ Monster Hunter</strong></td>
+          <td>Bone Block 16 + Gunpowder 64 + String 64</td>
+          <td>Ender Pearl 16 + Blaze Rod 16 + Magma Cream 16</td>
+          <td>Ghast Tear 8 + Phantom Membrane 16 + Breeze Rod 8</td>
+          <td>Wither Skull 2 + Totem 2 + Sculk Catalyst 8</td>
+        </tr>
+        <tr>
+          <td><strong>🧭 Adventurer</strong></td>
+          <td>Compass 2 + Empty Map 4 + Spyglass 1</td>
+          <td>Amethyst Shard 32 + Glow Ink Sac 16 + Saddle 2</td>
+          <td>Nautilus Shell 4 + Prismarine Shard 32 + Name Tag 2</td>
+          <td>Heart of the Sea 1 + Echo Shard 6 + Shulker Shell 4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>🏅 Hard Advancements (นับ 1 ครั้งต่อทีม)</h2>
+      <table>
+        <thead><tr><th>ระดับ</th><th>ตัวอย่างภารกิจ</th><th>คะแนน</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Tier 1</strong></td><td>Return to Sender (25), Star Trader (25), Subspace Bubble (30), Arbalistic (30), Uneasy Alliance (40), Cover Me in Debris (40)</td><td class="pts">25–40</td></tr>
+          <tr><td><strong>Tier 2</strong></td><td>Caves &amp; Cliffs (50), Great View (50), Sniper Duel (50), Two Birds (50), Over-Overkill (60), Smithing with Style (80), Monsters Hunted (80)</td><td class="pts">50–80</td></tr>
+          <tr><td><strong>Tier 3</strong></td><td>A Furious Cocktail (90), Adventuring Time (90), How Did We Get Here? (150 — ปรับลดจาก 200 เพื่อไม่ให้กลบสายอาชีพ)</td><td class="pts">90–150</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>🧮 จำลองคะแนนรวมทีม (Interactive Simulator)</h2>
+      <p class="muted" style="margin-bottom:14px;">ลองเลื่อนดูสัดส่วนคะแนนของทีมใน 1 ซีซัน (2–4 สัปดาห์)</p>
+
+      <div class="sim-row">
+        <label style="width:170px;">สายอาชีพ + เควส</label>
+        <input type="range" id="sCareer" min="0" max="1000" value="750" oninput="calcSim()" />
+        <span class="pts" id="vCareer">750</span>
+      </div>
+      <div class="sim-row">
+        <label style="width:170px;">บอส + อีเวนต์</label>
+        <input type="range" id="sBoss" min="0" max="750" value="420" oninput="calcSim()" />
+        <span class="pts" id="vBoss">420</span>
+      </div>
+      <div class="sim-row">
+        <label style="width:170px;">ของชิงชัย (Egg/Star)</label>
+        <input type="range" id="sTrophy" min="0" max="300" value="150" oninput="calcSim()" />
+        <span class="pts" id="vTrophy">150</span>
+      </div>
+      <div class="sim-row">
+        <label style="width:170px;">PvP + เพชร + Adv.</label>
+        <input type="range" id="sMisc" min="0" max="600" value="320" oninput="calcSim()" />
+        <span class="pts" id="vMisc">320</span>
+      </div>
+
+      <div class="sim-total">
+        <div class="muted">คะแนนรวมทีมตลอดซีซัน</div>
+        <div class="big" id="vTotal">1,640 แต้ม</div>
+        <div class="muted" id="vSplit">อาชีพ 46% • บอส/ของชิงชัย 35% • PvP/อื่นๆ 19%</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+  function calcSim() {
+    const c = +document.getElementById('sCareer').value;
+    const b = +document.getElementById('sBoss').value;
+    const t = +document.getElementById('sTrophy').value;
+    const m = +document.getElementById('sMisc').value;
+    const total = c + b + t + m;
+    document.getElementById('vCareer').textContent = c;
+    document.getElementById('vBoss').textContent = b;
+    document.getElementById('vTrophy').textContent = t;
+    document.getElementById('vMisc').textContent = m;
+    document.getElementById('vTotal').textContent = total.toLocaleString() + ' แต้ม';
+    if (total > 0) {
+      const pc = Math.round((c / total) * 100);
+      const pb = Math.round(((b + t) / total) * 100);
+      const pm = 100 - pc - pb;
+      document.getElementById('vSplit').textContent = `อาชีพ ${pc}% • บอส/ของชิงชัย ${pb}% • PvP/อื่นๆ ${pm}%`;
+    }
+  }
+</script>
+</body>
+</html>
