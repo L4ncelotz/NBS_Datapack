@@ -141,9 +141,13 @@
 ## 6. 📊 ระบบตารางคะแนนและสถิติ (Scoreboard & Stats)
 
 ### คำสั่งสำหรับผู้เล่น (The Citadel & สายอาชีพ)
-* **เปิดเมนู The Citadel `(0, 0)` (ซื้อธง 32 เพชร / ฝากเพชร / ส่งเควส 16 ใบ):**
+* **เปิดเมนู The Citadel `(0, 0)` (ซื้อธง 32 เพชร / ฝากเพชร / ส่งเควส 16 ใบ / ส่งเควสด่วน):**
   ```mcfunction
   /trigger citadel set 1
+  ```
+* **สุ่มเปิดเควสด่วน Bossbar ทันที (สำหรับแอดมิน):**
+  ```mcfunction
+  /function nbs:citadel/start_flash_quest
   ```
 * **เปิดเมนูเลือกสายอาชีพ (Farmer / Blacksmith / Monster Hunter / Adventurer):**
   ```mcfunction

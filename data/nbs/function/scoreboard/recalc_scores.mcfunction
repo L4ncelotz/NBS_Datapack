@@ -102,7 +102,8 @@ scoreboard players operation #pts rnd_temp = #t4_trial team_boss_cnt
 scoreboard players operation #pts rnd_temp *= #val item_value
 scoreboard players operation ทีมที่_4 team_score += #pts rnd_temp
 
-# 2.5 ตรวจและรวมคะแนนเควส The Citadel, เช็กลิสต์ย่อย 4 สายอาชีพ, และ Advancements/Milestones ประจำทีม
+# 2.5 ตรวจและรวมคะแนนเควส The Citadel, เควสด่วน Bossbar, เช็กลิสต์ย่อย 4 สายอาชีพ, และ Advancements ประจำทีม
+function nbs:citadel/tick_flash_quest
 function nbs:career/check_team_advs
 function nbs:career/check_career_checklists
 

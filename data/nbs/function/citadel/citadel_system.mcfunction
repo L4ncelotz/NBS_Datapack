@@ -17,7 +17,8 @@ execute as @a[scores={citadel=2},tag=in_spawn,scores={team_id=1..4}] run functio
 execute as @a[scores={citadel=3},tag=in_spawn,scores={team_id=1..4}] run function nbs:citadel/deposit_diamonds {amt:16}
 execute as @a[scores={citadel=4},tag=in_spawn,scores={team_id=1..4}] run function nbs:citadel/deposit_diamonds {amt:64}
 
-# 2.3 ส่งเควส The Citadel (11-44, จำกัด 1 ครั้งต่อทีม)
+# 2.3 ส่งเควส The Citadel (11-44, จำกัด 1 ครั้งต่อทีม) และส่งเควสด่วน (5)
+execute as @a[scores={citadel=5},tag=in_spawn,scores={team_id=1..4}] run function nbs:citadel/submit_flash_quest
 execute as @a[scores={citadel=11..44},tag=in_spawn,scores={team_id=1..4}] run function nbs:citadel/dispatch_quest
 
 # 3. รีเซ็ตค่า Trigger

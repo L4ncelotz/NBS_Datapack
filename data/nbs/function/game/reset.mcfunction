@@ -18,8 +18,14 @@ scoreboard players reset * team_adv_pts
 scoreboard players reset * team_career_pts
 scoreboard players reset * team_boss_cnt
 data remove storage nbs:citadel quests
+data remove storage nbs:citadel flash
+data remove storage nbs:citadel flash_done
 data remove storage nbs:adv done
 data remove storage nbs:career done
+scoreboard players set #flash_timer rnd_temp 0
+scoreboard players set #flash_first rnd_temp 0
+scoreboard players set #flash_cooldown rnd_temp 1800
+bossbar set nbs:flash_quest visible false
 
 # วาร์ปผู้เล่นทุกคนกลับจุด Spawn / Lobby
 execute at @e[tag=spawn_anchor,limit=1] run tp @a ~ ~ ~
