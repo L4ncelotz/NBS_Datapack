@@ -7,7 +7,8 @@ scoreboard players remove @a[scores={combat_tag=1..}] combat_tag 1
 
 scoreboard players enable @a career
 
-# 1. เปิดเมนูเลือกสายอาชีพ (/trigger career set 99)
+# 1. เปิดเมนูเลือกสายอาชีพ (/trigger career set 99) หรือดูสรุปเช็กลิสต์ (/trigger career set 98)
+execute as @a[scores={career=98}] run function nbs:career/show_checklist
 execute as @a[scores={career=99}] run function nbs:career/open_menu
 
 # 2. เลือกสายอาชีพ (1=Farmer, 2=Blacksmith, 3=Monster Hunter, 4=Adventurer)

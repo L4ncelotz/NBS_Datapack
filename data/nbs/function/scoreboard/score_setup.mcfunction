@@ -9,6 +9,7 @@ scoreboard objectives add chest_score dummy
 scoreboard objectives add team_diamonds dummy
 scoreboard objectives add team_quest_pts dummy
 scoreboard objectives add team_adv_pts dummy
+scoreboard objectives add team_career_pts dummy
 scoreboard objectives add team_boss_cnt dummy
 scoreboard objectives add total_pvp_kills dummy
 

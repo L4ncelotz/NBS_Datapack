@@ -2,49 +2,20 @@
 scoreboard players set #score_tick rnd_temp 0
 
 # ==========================================
-# 1. คำนวณคะแนนไอเทมชิงชัยในตัวผู้เล่น (Dragon Egg 150, Name Tag 15)
+# 1. รีเซ็ตคะแนนทีมและตัวนับ Nether Star (ของชิงชัยนับเฉพาะในกล่องในเขตธงอาณาเขต 32 บล็อกเท่านั้น!)
 # ==========================================
 scoreboard players set @a player_score 0
-
-# 1.1 ไข่มังกรในตัว (ฟองละ 150 คะแนน)
-scoreboard players set #val item_value 150
-execute as @a store result score @s item_count run clear @s minecraft:dragon_egg 0
-execute as @a[scores={item_count=1..}] run scoreboard players operation @s item_count *= #val item_value
-execute as @a[scores={item_count=1..}] run scoreboard players operation @s player_score += @s item_count
-
-# 1.2 ป้ายชื่อคะแนนในตัว (ชิ้นละ 15 คะแนน)
-scoreboard players set #val item_value 15
-execute as @a store result score @s item_count run clear @s minecraft:name_tag[custom_data={score_tag:1b}] 0
-execute as @a[scores={item_count=1..}] run scoreboard players operation @s item_count *= #val item_value
-execute as @a[scores={item_count=1..}] run scoreboard players operation @s player_score += @s item_count
-
-# 1.3 รีเซ็ตและนับ Nether Star ในตัวผู้เล่นแยกตามทีม (รวมกับในกล่องทีหลังเพื่อล็อก Cap 5 ดวง/ทีม)
 scoreboard players set #t1_star team_boss_cnt 0
 scoreboard players set #t2_star team_boss_cnt 0
 scoreboard players set #t3_star team_boss_cnt 0
 scoreboard players set #t4_star team_boss_cnt 0
 
-execute as @a store result score @s item_count run clear @s minecraft:nether_star 0
-execute as @a[scores={team_id=1,item_count=1..}] run scoreboard players operation #t1_star team_boss_cnt += @s item_count
-execute as @a[scores={team_id=2,item_count=1..}] run scoreboard players operation #t2_star team_boss_cnt += @s item_count
-execute as @a[scores={team_id=3,item_count=1..}] run scoreboard players operation #t3_star team_boss_cnt += @s item_count
-execute as @a[scores={team_id=4,item_count=1..}] run scoreboard players operation #t4_star team_boss_cnt += @s item_count
-
-# ==========================================
-# 2. รีเซ็ตและรวมคะแนนทีม (ของในตัว + กล่อง + บอสที่ล็อก Cap + เควส + Adv + โบนัส)
-# ==========================================
 scoreboard players set ทีมที่_1 team_score 0
 scoreboard players set ทีมที่_2 team_score 0
 scoreboard players set ทีมที่_3 team_score 0
 scoreboard players set ทีมที่_4 team_score 0
 
-# 2.1 คะแนนของชิงชัยในตัวสมาชิกทีม
-execute as @a[scores={team_id=1}] run scoreboard players operation ทีมที่_1 team_score += @s player_score
-execute as @a[scores={team_id=2}] run scoreboard players operation ทีมที่_2 team_score += @s player_score
-execute as @a[scores={team_id=3}] run scoreboard players operation ทีมที่_3 team_score += @s player_score
-execute as @a[scores={team_id=4}] run scoreboard players operation ทีมที่_4 team_score += @s player_score
-
-# 2.2 คะแนนจากกล่องทุกใบในเขตธงอาณาเขต (บวก Egg, Nametag และรวม Nether Star เข้า #t1_star..#t4_star)
+# 2.1 คะแนนของชิงชัยจากกล่องทุกใบที่อยู่ในรัศมีธงอาณาเขต (32 บล็อก) เท่านั้น (ป้องกันการถือของติดตัวแล้ว Log off หนี)
 execute as @e[type=minecraft:marker,tag=chest_anchor] at @s run function nbs:scoreboard/count_single_chest
 
 # 2.3 คะแนน Nether Star (30 แต้ม/ดวง, ล็อก Cap สูงสุด 5 ดวง/ทีม = 150 แต้ม)
@@ -131,13 +102,19 @@ scoreboard players operation #pts rnd_temp = #t4_trial team_boss_cnt
 scoreboard players operation #pts rnd_temp *= #val item_value
 scoreboard players operation ทีมที่_4 team_score += #pts rnd_temp
 
-# 2.5 ตรวจและรวมคะแนนเควส The Citadel และ Advancements/Milestones ประจำทีม
+# 2.5 ตรวจและรวมคะแนนเควส The Citadel, เช็กลิสต์ย่อย 4 สายอาชีพ, และ Advancements/Milestones ประจำทีม
 function nbs:career/check_team_advs
+function nbs:career/check_career_checklists
 
 scoreboard players operation ทีมที่_1 team_score += #team_1 team_quest_pts
 scoreboard players operation ทีมที่_2 team_score += #team_2 team_quest_pts
 scoreboard players operation ทีมที่_3 team_score += #team_3 team_quest_pts
 scoreboard players operation ทีมที่_4 team_score += #team_4 team_quest_pts
+
+scoreboard players operation ทีมที่_1 team_score += #team_1 team_career_pts
+scoreboard players operation ทีมที่_2 team_score += #team_2 team_career_pts
+scoreboard players operation ทีมที่_3 team_score += #team_3 team_career_pts
+scoreboard players operation ทีมที่_4 team_score += #team_4 team_career_pts
 
 scoreboard players operation ทีมที่_1 team_score += #team_1 team_adv_pts
 scoreboard players operation ทีมที่_2 team_score += #team_2 team_adv_pts

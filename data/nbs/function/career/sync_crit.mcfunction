@@ -1,0 +1,5 @@
+# ตรวจ Criterion ย่อยของ Advancement (เช่น การผสมพันธุ์สัตว์แต่ละชนิด, การฆ่ามอนสเตอร์แต่ละชนิด, การค้นพบโครงสร้างแต่ละแห่ง)
+$execute unless data storage nbs:career done.$(key).t1 if entity @a[scores={team_id=1},advancements={$(adv)={$(crit)=true}}] run function nbs:career/award_checklist {team:1,cat:"$(cat)",key:"$(key)",pts:$(pts),name:"$(name)"}
+$execute unless data storage nbs:career done.$(key).t2 if entity @a[scores={team_id=2},advancements={$(adv)={$(crit)=true}}] run function nbs:career/award_checklist {team:2,cat:"$(cat)",key:"$(key)",pts:$(pts),name:"$(name)"}
+$execute unless data storage nbs:career done.$(key).t3 if entity @a[scores={team_id=3},advancements={$(adv)={$(crit)=true}}] run function nbs:career/award_checklist {team:3,cat:"$(cat)",key:"$(key)",pts:$(pts),name:"$(name)"}
+$execute unless data storage nbs:career done.$(key).t4 if entity @a[scores={team_id=4},advancements={$(adv)={$(crit)=true}}] run function nbs:career/award_checklist {team:4,cat:"$(cat)",key:"$(key)",pts:$(pts),name:"$(name)"}
