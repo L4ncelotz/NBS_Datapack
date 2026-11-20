@@ -1,0 +1,17 @@
+say Welcome
+function nbs:team/team_setup
+function nbs:border/border_setup
+function nbs:scoreboard/score_setup
+
+# สร้าง Scoreboard ตรวจจับการวางธงสีขาว (ใช้เป็นธงอาณาเขตหลัก)
+scoreboard objectives add place_flag minecraft.used:minecraft.white_banner
+scoreboard objectives add team_id dummy
+scoreboard objectives add flag_count dummy
+scoreboard objectives add check_flag trigger
+scoreboard objectives add flag_x dummy
+scoreboard objectives add flag_y dummy
+scoreboard objectives add flag_z dummy
+
+# สร้างตัวปักหมุดจุด Spawn (ถ้ายังไม่มีในโลก)
+# หมายเหตุ: หากต้องการย้ายจุด Spawn ใหม่ ให้พิมพ์ /kill @e[tag=spawn_anchor] แล้วใช้คำสั่ง /summon minecraft:marker ~ ~ ~ {Tags:["spawn_anchor"]} ตรงจุดเกิดใหม่
+execute unless entity @e[tag=spawn_anchor] run summon minecraft:marker 0 64 0 {Tags:["spawn_anchor"]}

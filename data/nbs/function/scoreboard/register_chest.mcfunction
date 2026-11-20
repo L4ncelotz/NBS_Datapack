@@ -1,0 +1,1 @@
+execute anchored eyes positioned ^ ^ ^0.5 run function nbs:scoreboard/raycast_chest

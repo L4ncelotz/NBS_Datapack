@@ -1,0 +1,4 @@
+execute positioned ~1 ~ ~ if block ~ ~ ~ minecraft:chest unless entity @e[type=minecraft:marker,tag=chest_anchor,distance=..0.5] run summon minecraft:marker ~ ~ ~ {Tags:["chest_anchor"]}
+execute positioned ~-1 ~ ~ if block ~ ~ ~ minecraft:chest unless entity @e[type=minecraft:marker,tag=chest_anchor,distance=..0.5] run summon minecraft:marker ~ ~ ~ {Tags:["chest_anchor"]}
+execute positioned ~ ~ ~1 if block ~ ~ ~ minecraft:chest unless entity @e[type=minecraft:marker,tag=chest_anchor,distance=..0.5] run summon minecraft:marker ~ ~ ~ {Tags:["chest_anchor"]}
+execute positioned ~ ~ ~-1 if block ~ ~ ~ minecraft:chest unless entity @e[type=minecraft:marker,tag=chest_anchor,distance=..0.5] run summon minecraft:marker ~ ~ ~ {Tags:["chest_anchor"]}

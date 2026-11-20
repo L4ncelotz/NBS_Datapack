@@ -1,0 +1,20 @@
+# 1. ดึงไอเทมช่องแรกสุดออกมาเก็บใน CurrentItem แล้วลบช่องแรกทิ้ง
+data modify storage nbs:temp CurrentItem set from storage nbs:temp ChestItems[0]
+data remove storage nbs:temp ChestItems[0]
+
+# 2. ตรวจสอบไข่มังกร (Dragon Egg: 100 คะแนน)
+scoreboard players set #slot_count item_count 0
+execute if data storage nbs:temp CurrentItem{id:"minecraft:dragon_egg"} store result score #slot_count item_count run data get storage nbs:temp CurrentItem.count
+execute if data storage nbs:temp CurrentItem{id:"minecraft:dragon_egg"} if score #slot_count item_count matches 0 store result score #slot_count item_count run data get storage nbs:temp CurrentItem.Count
+execute if data storage nbs:temp CurrentItem{id:"minecraft:dragon_egg"} if score #slot_count item_count matches 0 run scoreboard players set #slot_count item_count 1
+scoreboard players operation #egg_in_chest item_count += #slot_count item_count
+
+# 3. ตรวจสอบป้ายชื่อ (Name Tag: 5 คะแนน)
+scoreboard players set #slot_count item_count 0
+execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag"} store result score #slot_count item_count run data get storage nbs:temp CurrentItem.count
+execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag"} if score #slot_count item_count matches 0 store result score #slot_count item_count run data get storage nbs:temp CurrentItem.Count
+execute if data storage nbs:temp CurrentItem{id:"minecraft:name_tag"} if score #slot_count item_count matches 0 run scoreboard players set #slot_count item_count 1
+scoreboard players operation #nametag_in_chest item_count += #slot_count item_count
+
+# 4. หากยังมีไอเทมเหลือในกล่อง ให้ทำซ้ำช่องถัดไปจนหมด
+execute if data storage nbs:temp ChestItems[0] run function nbs:scoreboard/sum_chest_items
