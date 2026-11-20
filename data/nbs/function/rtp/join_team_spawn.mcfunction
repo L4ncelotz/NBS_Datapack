@@ -15,9 +15,10 @@ tag @e[type=minecraft:marker,tag=new_team_spawn] remove new_team_spawn
 tp @s @e[type=minecraft:marker,tag=target_team_spawn,limit=1]
 tag @e[type=minecraft:marker,tag=target_team_spawn] remove target_team_spawn
 
-# ลบสมุดเลือกทีมออกจากตัว และแจกธงอาณาเขตประจำทีม (1 ต้น)
+# ลบสมุดเลือกทีมออกจากตัว แจกธงอาณาเขตประจำทีม (1 ต้น) และแจกสมุดคู่มือ 1 เล่ม
 clear @s minecraft:written_book[custom_data={team_book:1b}]
 function nbs:territory/give_flag
+function nbs:game/give_guide_book
 
 # ให้สถานะกันดาเมจ 5 วินาที
 effect give @s minecraft:resistance 5 255 true

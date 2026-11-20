@@ -1,6 +1,9 @@
 # ==========================================
-# ระบบสถานะเกม (Waiting Lobby -> Active Game)
+# ระบบสถานะเกม (Waiting Lobby -> Active Game) และสมุดคู่มือ (/trigger guide)
 # ==========================================
+scoreboard players enable @a guide
+execute as @a[scores={guide=1..}] run function nbs:game/give_guide_book
+scoreboard players set @a[scores={guide=1..}] guide 0
 
 # กรณีที่ 1: ช่วง Waiting / Lobby (#game_state == 0)
 # แจกสมุดเลือกทีมให้ผู้เล่นที่ยังไม่มีสมุด

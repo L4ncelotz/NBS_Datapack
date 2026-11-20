@@ -6,6 +6,7 @@ scoreboard players set #raid_day game_state 0
 kill @e[type=minecraft:marker,tag=team_spawn]
 tag @a remove rtp_joined
 tag @a remove just_died
+clear @a minecraft:written_book[custom_data={guide_book:1b}]
 
 # รีเซ็ตคะแนนซีซัน อาชีพ และเควสทีมทั้งหมด
 scoreboard players set @a career_id 0

@@ -8,6 +8,7 @@ scoreboard objectives add game_state dummy
 scoreboard objectives add join_team trigger
 scoreboard objectives add citadel trigger
 scoreboard objectives add career trigger
+scoreboard objectives add guide trigger
 scoreboard objectives add career_id dummy
 scoreboard objectives add combat_tag dummy
 scoreboard objectives add pvp_cd dummy
