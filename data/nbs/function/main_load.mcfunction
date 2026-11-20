@@ -6,7 +6,10 @@ function nbs:border/border_setup
 # สร้าง Scoreboard ระบบสถานะเกมและเลือกทีม
 scoreboard objectives add game_state dummy
 scoreboard objectives add join_team trigger
-scoreboard players add #game_state game_state 0
+scoreboard objectives add has_book dummy
+
+# กำหนดสถานะเริ่มต้น ถ้ายังไม่มี ให้เป็น Lobby (#game_state = 0)
+execute unless score #game_state game_state matches 0.. run scoreboard players set #game_state game_state 0
 
 # สร้าง Scoreboard ตรวจจับการวางธงสีขาว (ใช้เป็นธงอาณาเขตหลัก)
 scoreboard objectives add place_flag minecraft.used:minecraft.white_banner
@@ -17,6 +20,7 @@ scoreboard objectives add flag_x dummy
 scoreboard objectives add flag_y dummy
 scoreboard objectives add flag_z dummy
 
-# สร้างตัวปักหมุดจุด Spawn (ถ้ายังไม่มีในโลก)
+# สร้างตัวปักหมุดจุด Spawn (ถ้ายังไม่มีในโลก) พร้อมตั้งค่าจุดเกิดโลก (World Spawn) ให้อยู่ตรงหมุดพอดี
 # หมายเหตุ: หากต้องการย้ายจุด Spawn ใหม่ ให้พิมพ์ /kill @e[tag=spawn_anchor] แล้วใช้คำสั่ง /summon minecraft:marker ~ ~ ~ {Tags:["spawn_anchor"]} ตรงจุดเกิดใหม่
 execute unless entity @e[tag=spawn_anchor] run summon minecraft:marker 0 64 0 {Tags:["spawn_anchor"]}
+execute at @e[tag=spawn_anchor,limit=1] run setworldspawn ~ ~ ~
