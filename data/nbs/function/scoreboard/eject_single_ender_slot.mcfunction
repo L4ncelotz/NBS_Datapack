@@ -1,1 +1,0 @@
-function nbs:anti_enderchest/eject_single_ender_slot
