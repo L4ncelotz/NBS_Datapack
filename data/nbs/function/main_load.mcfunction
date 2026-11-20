@@ -8,8 +8,11 @@ scoreboard objectives add game_state dummy
 scoreboard objectives add join_team trigger
 scoreboard players add #game_state game_state 0
 
-# สร้าง Scoreboard ตรวจจับการวางธงสีขาว (ใช้เป็นธงอาณาเขตหลัก)
-scoreboard objectives add place_flag minecraft.used:minecraft.white_banner
+# สร้าง Scoreboard ตรวจจับการวางธงอาณาเขตแยกตามสีทีม (แดง, น้ำเงิน, เขียว, เหลือง)
+scoreboard objectives add place_flag_1 minecraft.used:minecraft.red_banner
+scoreboard objectives add place_flag_2 minecraft.used:minecraft.blue_banner
+scoreboard objectives add place_flag_3 minecraft.used:minecraft.green_banner
+scoreboard objectives add place_flag_4 minecraft.used:minecraft.yellow_banner
 scoreboard objectives add team_id dummy
 scoreboard objectives add flag_count dummy
 scoreboard objectives add check_flag trigger

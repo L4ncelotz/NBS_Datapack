@@ -1,0 +1,10 @@
+# แจกธงอาณาเขตลายพิเศษประจำทีม (1 ต้น) ให้ผู้เล่น @s ตาม team_id
+execute if score @s team_id matches 0 run tellraw @s [{"text":"[NBs SMP] ","color":"red","bold":true},{"text":"คุณต้องมีทีมก่อนจึงจะรับธงอาณาเขตได้!","color":"yellow"}]
+
+execute if score @s team_id matches 1 run give @s minecraft:red_banner[custom_name={text:"🚩 ธงอาณาเขต Team 1",color:"red",bold:true,italic:false},lore=[{text:"วางเพื่อสร้างอาณาเขตรัศมี 32 บล็อก",color:"gray",italic:false},{text:"ศัตรูในเขตจะขุดช้าลง 75%",color:"yellow",italic:false}],banner_patterns=[{pattern:"minecraft:gradient_up",color:"black"},{pattern:"minecraft:rhombus",color:"yellow"},{pattern:"minecraft:curly_border",color:"yellow"}]] 1
+
+execute if score @s team_id matches 2 run give @s minecraft:blue_banner[custom_name={text:"🚩 ธงอาณาเขต Team 2",color:"blue",bold:true,italic:false},lore=[{text:"วางเพื่อสร้างอาณาเขตรัศมี 32 บล็อก",color:"gray",italic:false},{text:"ศัตรูในเขตจะขุดช้าลง 75%",color:"yellow",italic:false}],banner_patterns=[{pattern:"minecraft:gradient_up",color:"black"},{pattern:"minecraft:rhombus",color:"light_blue"},{pattern:"minecraft:curly_border",color:"white"}]] 1
+
+execute if score @s team_id matches 3 run give @s minecraft:green_banner[custom_name={text:"🚩 ธงอาณาเขต Team 3",color:"green",bold:true,italic:false},lore=[{text:"วางเพื่อสร้างอาณาเขตรัศมี 32 บล็อก",color:"gray",italic:false},{text:"ศัตรูในเขตจะขุดช้าลง 75%",color:"yellow",italic:false}],banner_patterns=[{pattern:"minecraft:gradient_up",color:"black"},{pattern:"minecraft:rhombus",color:"lime"},{pattern:"minecraft:curly_border",color:"white"}]] 1
+
+execute if score @s team_id matches 4 run give @s minecraft:yellow_banner[custom_name={text:"🚩 ธงอาณาเขต Team 4",color:"yellow",bold:true,italic:false},lore=[{text:"วางเพื่อสร้างอาณาเขตรัศมี 32 บล็อก",color:"gray",italic:false},{text:"ศัตรูในเขตจะขุดช้าลง 75%",color:"yellow",italic:false}],banner_patterns=[{pattern:"minecraft:gradient_up",color:"black"},{pattern:"minecraft:rhombus",color:"orange"},{pattern:"minecraft:curly_border",color:"white"}]] 1
