@@ -1,4 +1,5 @@
 # เมนูเลือกทีมแบบไดนามิกสำหรับผู้เล่น (/trigger join_team set 98) — แสดงเฉพาะทีมที่เปิดอยู่พร้อมชื่อและสีจริง
+function nbs:team/ensure_defaults
 tellraw @s {"text":"========================================","color":"dark_gray","bold":true}
 tellraw @s {"text":" 👥 เลือกเข้าร่วมทีม (คลิกที่ชื่อทีมได้เลย)","color":"gold","bold":true}
 tellraw @s {"text":"========================================","color":"dark_gray","bold":true}

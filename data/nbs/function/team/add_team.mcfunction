@@ -1,14 +1,15 @@
 # เปิดใช้งานช่องทีมถัดไปที่ยังว่างอยู่ (รองรับสูงสุด 8 ทีม)
+function nbs:team/ensure_defaults
 scoreboard players set #added_team rnd_temp 0
 
-execute if score #added_team rnd_temp matches 0 if score #t1_active game_state matches 0 run scoreboard players set #added_team rnd_temp 1
-execute if score #added_team rnd_temp matches 0 if score #t2_active game_state matches 0 run scoreboard players set #added_team rnd_temp 2
-execute if score #added_team rnd_temp matches 0 if score #t3_active game_state matches 0 run scoreboard players set #added_team rnd_temp 3
-execute if score #added_team rnd_temp matches 0 if score #t4_active game_state matches 0 run scoreboard players set #added_team rnd_temp 4
-execute if score #added_team rnd_temp matches 0 if score #t5_active game_state matches 0 run scoreboard players set #added_team rnd_temp 5
-execute if score #added_team rnd_temp matches 0 if score #t6_active game_state matches 0 run scoreboard players set #added_team rnd_temp 6
-execute if score #added_team rnd_temp matches 0 if score #t7_active game_state matches 0 run scoreboard players set #added_team rnd_temp 7
-execute if score #added_team rnd_temp matches 0 if score #t8_active game_state matches 0 run scoreboard players set #added_team rnd_temp 8
+execute if score #added_team rnd_temp matches 0 unless score #t1_active game_state matches 1 run scoreboard players set #added_team rnd_temp 1
+execute if score #added_team rnd_temp matches 0 unless score #t2_active game_state matches 1 run scoreboard players set #added_team rnd_temp 2
+execute if score #added_team rnd_temp matches 0 unless score #t3_active game_state matches 1 run scoreboard players set #added_team rnd_temp 3
+execute if score #added_team rnd_temp matches 0 unless score #t4_active game_state matches 1 run scoreboard players set #added_team rnd_temp 4
+execute if score #added_team rnd_temp matches 0 unless score #t5_active game_state matches 1 run scoreboard players set #added_team rnd_temp 5
+execute if score #added_team rnd_temp matches 0 unless score #t6_active game_state matches 1 run scoreboard players set #added_team rnd_temp 6
+execute if score #added_team rnd_temp matches 0 unless score #t7_active game_state matches 1 run scoreboard players set #added_team rnd_temp 7
+execute if score #added_team rnd_temp matches 0 unless score #t8_active game_state matches 1 run scoreboard players set #added_team rnd_temp 8
 
 execute if score #added_team rnd_temp matches 0 run tellraw @s [{"text":"❌ [ระบบทีม] ","color":"red","bold":true},{"text":"เปิดใช้งานครบสูงสุด 8 ทีมแล้ว!","color":"yellow"}]
 
