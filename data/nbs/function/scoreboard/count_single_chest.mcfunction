@@ -31,20 +31,32 @@ execute if score #nametag_in_chest item_count matches 1.. run scoreboard players
 # ==========================================
 # 6. รวมคะแนนเข้าทีมที่เป็นเจ้าของธงอาณาเขต! (ต้องเก็บไว้ในกล่องเขตธงเท่านั้นจึงจะได้แต้ม)
 # ==========================================
-# รวมคะแนนไข่มังกรเข้าทีมเจ้าของกล่อง
+# รวมคะแนนไข่มังกรเข้าทีมเจ้าของกล่อง (1-8)
 execute if score #chest_owner team_id matches 1 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_1 team_score += #egg_in_chest item_count
 execute if score #chest_owner team_id matches 2 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_2 team_score += #egg_in_chest item_count
 execute if score #chest_owner team_id matches 3 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_3 team_score += #egg_in_chest item_count
 execute if score #chest_owner team_id matches 4 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_4 team_score += #egg_in_chest item_count
+execute if score #chest_owner team_id matches 5 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_5 team_score += #egg_in_chest item_count
+execute if score #chest_owner team_id matches 6 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_6 team_score += #egg_in_chest item_count
+execute if score #chest_owner team_id matches 7 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_7 team_score += #egg_in_chest item_count
+execute if score #chest_owner team_id matches 8 if score #egg_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_8 team_score += #egg_in_chest item_count
 
-# รวมคะแนนป้ายชื่อเข้าทีมเจ้าของกล่อง
+# รวมคะแนนป้ายชื่อเข้าทีมเจ้าของกล่อง (1-8)
 execute if score #chest_owner team_id matches 1 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_1 team_score += #nametag_in_chest item_count
 execute if score #chest_owner team_id matches 2 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_2 team_score += #nametag_in_chest item_count
 execute if score #chest_owner team_id matches 3 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_3 team_score += #nametag_in_chest item_count
 execute if score #chest_owner team_id matches 4 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_4 team_score += #nametag_in_chest item_count
+execute if score #chest_owner team_id matches 5 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_5 team_score += #nametag_in_chest item_count
+execute if score #chest_owner team_id matches 6 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_6 team_score += #nametag_in_chest item_count
+execute if score #chest_owner team_id matches 7 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_7 team_score += #nametag_in_chest item_count
+execute if score #chest_owner team_id matches 8 if score #nametag_in_chest item_count matches 1.. run scoreboard players operation ทีมที่_8 team_score += #nametag_in_chest item_count
 
-# รวมจำนวน Nether Star เข้าตัวแปรทีม (เพื่อล็อก Cap สูงสุด 5 ดวง/ทีม ใน recalc_scores)
+# รวมจำนวน Nether Star เข้าตัวแปรทีม (1-8)
 execute if score #chest_owner team_id matches 1 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t1_star team_boss_cnt += #star_in_chest item_count
 execute if score #chest_owner team_id matches 2 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t2_star team_boss_cnt += #star_in_chest item_count
 execute if score #chest_owner team_id matches 3 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t3_star team_boss_cnt += #star_in_chest item_count
 execute if score #chest_owner team_id matches 4 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t4_star team_boss_cnt += #star_in_chest item_count
+execute if score #chest_owner team_id matches 5 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t5_star team_boss_cnt += #star_in_chest item_count
+execute if score #chest_owner team_id matches 6 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t6_star team_boss_cnt += #star_in_chest item_count
+execute if score #chest_owner team_id matches 7 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t7_star team_boss_cnt += #star_in_chest item_count
+execute if score #chest_owner team_id matches 8 if score #star_in_chest item_count matches 1.. run scoreboard players operation #t8_star team_boss_cnt += #star_in_chest item_count

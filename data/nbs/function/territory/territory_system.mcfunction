@@ -2,16 +2,24 @@
 scoreboard players add @a team_id 0
 
 # ==========================================
-# 1. ระบบปักธงอาณาเขต (ตรวจจับจังหวะวางบล็อกธงแยกสีทีม 1-4)
+# 1. ระบบปักธงอาณาเขต (ตรวจจับจังหวะวางบล็อกธงแยกสีทีม 1-8)
 # ==========================================
 execute as @a[scores={place_flag_1=1..}] at @s run function nbs:territory/place_flag_anchor
 execute as @a[scores={place_flag_2=1..}] at @s run function nbs:territory/place_flag_anchor
 execute as @a[scores={place_flag_3=1..}] at @s run function nbs:territory/place_flag_anchor
 execute as @a[scores={place_flag_4=1..}] at @s run function nbs:territory/place_flag_anchor
+execute as @a[scores={place_flag_5=1..}] at @s run function nbs:territory/place_flag_anchor
+execute as @a[scores={place_flag_6=1..}] at @s run function nbs:territory/place_flag_anchor
+execute as @a[scores={place_flag_7=1..}] at @s run function nbs:territory/place_flag_anchor
+execute as @a[scores={place_flag_8=1..}] at @s run function nbs:territory/place_flag_anchor
 scoreboard players set @a[scores={place_flag_1=1..}] place_flag_1 0
 scoreboard players set @a[scores={place_flag_2=1..}] place_flag_2 0
 scoreboard players set @a[scores={place_flag_3=1..}] place_flag_3 0
 scoreboard players set @a[scores={place_flag_4=1..}] place_flag_4 0
+scoreboard players set @a[scores={place_flag_5=1..}] place_flag_5 0
+scoreboard players set @a[scores={place_flag_6=1..}] place_flag_6 0
+scoreboard players set @a[scores={place_flag_7=1..}] place_flag_7 0
+scoreboard players set @a[scores={place_flag_8=1..}] place_flag_8 0
 
 # ==========================================
 # 2. ระบบตรวจสอบสภาพธงและเอฟเฟกต์ Particle สีทีม
@@ -20,6 +28,10 @@ execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=1}] at @s un
 execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=2}] at @s unless block ~ ~ ~ minecraft:blue_banner unless block ~ ~ ~ minecraft:blue_wall_banner run function nbs:territory/break_flag_anchor
 execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=3}] at @s unless block ~ ~ ~ minecraft:green_banner unless block ~ ~ ~ minecraft:green_wall_banner run function nbs:territory/break_flag_anchor
 execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=4}] at @s unless block ~ ~ ~ minecraft:yellow_banner unless block ~ ~ ~ minecraft:yellow_wall_banner run function nbs:territory/break_flag_anchor
+execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=5}] at @s unless block ~ ~ ~ minecraft:magenta_banner unless block ~ ~ ~ minecraft:magenta_wall_banner run function nbs:territory/break_flag_anchor
+execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=6}] at @s unless block ~ ~ ~ minecraft:cyan_banner unless block ~ ~ ~ minecraft:cyan_wall_banner run function nbs:territory/break_flag_anchor
+execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=7}] at @s unless block ~ ~ ~ minecraft:orange_banner unless block ~ ~ ~ minecraft:orange_wall_banner run function nbs:territory/break_flag_anchor
+execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=8}] at @s unless block ~ ~ ~ minecraft:white_banner unless block ~ ~ ~ minecraft:white_wall_banner run function nbs:territory/break_flag_anchor
 
 scoreboard players add #flag_fx_tick rnd_temp 1
 execute if score #flag_fx_tick rnd_temp matches 10.. as @e[type=minecraft:marker,tag=flag_anchor] at @s run function nbs:territory/flag_particles

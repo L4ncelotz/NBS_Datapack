@@ -5,6 +5,10 @@ scoreboard players add #t1_head team_boss_cnt 0
 scoreboard players add #t2_head team_boss_cnt 0
 scoreboard players add #t3_head team_boss_cnt 0
 scoreboard players add #t4_head team_boss_cnt 0
+scoreboard players add #t5_head team_boss_cnt 0
+scoreboard players add #t6_head team_boss_cnt 0
+scoreboard players add #t7_head team_boss_cnt 0
+scoreboard players add #t8_head team_boss_cnt 0
 
 # 1. สมุดล่ามอนสเตอร์ (ตรวจจาก Criterion ของ minecraft:adventure/kill_all_mobs)
 function nbs:career/sync_crit {cat:"hunter",adv:"minecraft:adventure/kill_all_mobs",crit:"minecraft:zombie",key:"mb_zombie",pts:5,name:"[Hunter] สังหาร Zombie"}

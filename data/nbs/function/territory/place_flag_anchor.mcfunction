@@ -58,11 +58,15 @@ tag @e[type=minecraft:marker,tag=temp_flag_check] remove temp_flag_check
 # บันทึกข้อมูลเลขทีมของคนวางลงในหมุด
 scoreboard players operation @e[type=minecraft:marker,tag=new_flag,limit=1] team_id = @s team_id
 
-# สร้างป้ายชื่อลอยเหนือธงแยกสีตามทีม (ซ่อนอัตโนมัติเมื่ออยู่ห่างเกิน ~9-10 บล็อก)
-execute if score @s team_id matches 1 at @e[type=minecraft:marker,tag=new_flag,limit=1] run summon minecraft:text_display ~ ~2.2 ~ {Tags:["flag_text","new_text"],billboard:"center",background:1073741824,view_range:0.15f,text:{text:"🚩 อาณาเขต Team 1",color:"red",bold:true}}
-execute if score @s team_id matches 2 at @e[type=minecraft:marker,tag=new_flag,limit=1] run summon minecraft:text_display ~ ~2.2 ~ {Tags:["flag_text","new_text"],billboard:"center",background:1073741824,view_range:0.15f,text:{text:"🚩 อาณาเขต Team 2",color:"blue",bold:true}}
-execute if score @s team_id matches 3 at @e[type=minecraft:marker,tag=new_flag,limit=1] run summon minecraft:text_display ~ ~2.2 ~ {Tags:["flag_text","new_text"],billboard:"center",background:1073741824,view_range:0.15f,text:{text:"🚩 อาณาเขต Team 3",color:"green",bold:true}}
-execute if score @s team_id matches 4 at @e[type=minecraft:marker,tag=new_flag,limit=1] run summon minecraft:text_display ~ ~2.2 ~ {Tags:["flag_text","new_text"],billboard:"center",background:1073741824,view_range:0.15f,text:{text:"🚩 อาณาเขต Team 4",color:"yellow",bold:true}}
+# สร้างป้ายชื่อลอยเหนือธงตามชื่อและสีทีมที่แอดมินตั้งไว้ (รองรับ 1-8 ทีม)
+execute if score @s team_id matches 1 run function nbs:territory/summon_flag_text with storage nbs:team t1
+execute if score @s team_id matches 2 run function nbs:territory/summon_flag_text with storage nbs:team t2
+execute if score @s team_id matches 3 run function nbs:territory/summon_flag_text with storage nbs:team t3
+execute if score @s team_id matches 4 run function nbs:territory/summon_flag_text with storage nbs:team t4
+execute if score @s team_id matches 5 run function nbs:territory/summon_flag_text with storage nbs:team t5
+execute if score @s team_id matches 6 run function nbs:territory/summon_flag_text with storage nbs:team t6
+execute if score @s team_id matches 7 run function nbs:territory/summon_flag_text with storage nbs:team t7
+execute if score @s team_id matches 8 run function nbs:territory/summon_flag_text with storage nbs:team t8
 
 # แจ้งเตือนเจ้าของธง
 execute if entity @e[type=minecraft:marker,tag=new_flag] run title @s actionbar {"text":"ปักธงอาณาเขตสำเร็จ! รัศมีป้องกัน 32 บล็อกทำงานแล้ว","color":"green"}

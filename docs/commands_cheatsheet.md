@@ -22,9 +22,10 @@
 * `/function nbs:citadel/start_flash_quest` — สุ่มเปิด **เควสด่วน Bossbar** ทันที
 * `/function nbs:game/reset` — รีเซ็ตซีซันกลับ Lobby `(0, 0)`
 
-### คำสั่งจัดการทีมและทดสอบ
-* `/team join team_1 <ชื่อผู้เล่น>` (เปลี่ยนเป็น `team_1` ถึง `team_4`)
-* `/team modify team_1 color <สี>` / `prefix {"text":"[ชื่อทีม] ","color":"<สี>"}`
+### คำสั่งจัดการทีม (เพิ่ม/ลบ 1–8 ทีม, เปลี่ยนชื่อบน Sidebar, เปลี่ยนสี) และทดสอบ
+* `/function nbs:team/admin_menu` — เปิด **⚙️ เมนูจัดการทีม** ในแชต (คลิกปุ่ม `[ ➕ เพิ่มทีมใหม่ ]`, `[ ✏️ เปลี่ยนชื่อ ]`, `[ 🎨 สี ]`, `[ 🗑️ ปิดทีม ]` ได้เลย)
+* `/function nbs:team/rename {team:1,name:"ชื่อทีมใหม่"}` — เปลี่ยนชื่อทีม (อัปเดตทั้ง Sidebar ขวามือและ Prefix หน้าชื่อผู้เล่นทันที)
+* `/team join team_1 <ชื่อผู้เล่น>` (เปลี่ยนเป็น `team_1` ถึง `team_8`)
 * `/function nbs:territory/give_flag` — เสกธงอาณาเขตประจำทีม 1 ต้น
 * `/function nbs:kill_reward/give_nametag` — เสกป้ายชื่อคะแนน (+15) 1 ชิ้น
 * `/tag <ชื่อผู้เล่น> add admin` — ให้สิทธิ์แอดมินทุบ/วางบล็อกใน The Citadel `(0, 0)`

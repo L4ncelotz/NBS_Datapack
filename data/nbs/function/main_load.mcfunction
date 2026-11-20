@@ -15,11 +15,15 @@ scoreboard objectives add pvp_cd dummy
 scoreboard players add #game_state game_state 0
 scoreboard players add #raid_day game_state 0
 
-# สร้าง Scoreboard ตรวจจับการวางธงอาณาเขตแยกตามสีทีม (แดง, น้ำเงิน, เขียว, เหลือง)
+# สร้าง Scoreboard ตรวจจับการวางธงอาณาเขตแยกตามสีทีม 1-8 (แดง, น้ำเงิน, เขียว, เหลือง, ม่วง, ฟ้าคราม, ส้ม, ขาว)
 scoreboard objectives add place_flag_1 minecraft.used:minecraft.red_banner
 scoreboard objectives add place_flag_2 minecraft.used:minecraft.blue_banner
 scoreboard objectives add place_flag_3 minecraft.used:minecraft.green_banner
 scoreboard objectives add place_flag_4 minecraft.used:minecraft.yellow_banner
+scoreboard objectives add place_flag_5 minecraft.used:minecraft.magenta_banner
+scoreboard objectives add place_flag_6 minecraft.used:minecraft.cyan_banner
+scoreboard objectives add place_flag_7 minecraft.used:minecraft.orange_banner
+scoreboard objectives add place_flag_8 minecraft.used:minecraft.white_banner
 scoreboard objectives add team_id dummy
 scoreboard objectives add flag_count dummy
 scoreboard objectives add check_flag trigger

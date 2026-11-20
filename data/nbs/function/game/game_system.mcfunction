@@ -18,5 +18,5 @@ execute if score #game_state game_state matches 1 as @a[tag=!rtp_joined,scores={
 execute if score #game_state game_state matches 1 as @a[tag=!rtp_joined,scores={team_id=0}] unless items entity @s container.* minecraft:written_book[custom_data={team_book:1b}] unless items entity @s weapon.offhand minecraft:written_book[custom_data={team_book:1b}] unless items entity @s player.cursor minecraft:written_book[custom_data={team_book:1b}] run function nbs:game/give_team_book
 execute if score #game_state game_state matches 1 as @a[tag=!rtp_joined,scores={team_id=0}] run title @s actionbar {"text":"เปิดสมุดในมือเพื่อเลือกทีมก่อนเข้าสู่เกม!","color":"yellow"}
 
-# 2.2 ถ้าเลือกทีมแล้ว (team_id 1-4) -> ลบสมุดออกและวาร์ปไปจุดเกิดทีมทันที
-execute if score #game_state game_state matches 1 as @a[tag=!rtp_joined,scores={team_id=1..4}] at @s run function nbs:rtp/join_team_spawn
+# 2.2 ถ้าเลือกทีมแล้ว (team_id 1-8) -> ลบสมุดออกและวาร์ปไปจุดเกิดทีมทันที
+execute if score #game_state game_state matches 1 as @a[tag=!rtp_joined,scores={team_id=1..8}] at @s run function nbs:rtp/join_team_spawn

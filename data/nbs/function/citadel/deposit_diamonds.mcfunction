@@ -6,5 +6,9 @@ $execute if score #have_dia item_count matches $(amt).. if score @s team_id matc
 $execute if score #have_dia item_count matches $(amt).. if score @s team_id matches 2 run scoreboard players add #team_2 team_diamonds $(amt)
 $execute if score #have_dia item_count matches $(amt).. if score @s team_id matches 3 run scoreboard players add #team_3 team_diamonds $(amt)
 $execute if score #have_dia item_count matches $(amt).. if score @s team_id matches 4 run scoreboard players add #team_4 team_diamonds $(amt)
+$execute if score #have_dia item_count matches $(amt).. if score @s team_id matches 5 run scoreboard players add #team_5 team_diamonds $(amt)
+$execute if score #have_dia item_count matches $(amt).. if score @s team_id matches 6 run scoreboard players add #team_6 team_diamonds $(amt)
+$execute if score #have_dia item_count matches $(amt).. if score @s team_id matches 7 run scoreboard players add #team_7 team_diamonds $(amt)
+$execute if score #have_dia item_count matches $(amt).. if score @s team_id matches 8 run scoreboard players add #team_8 team_diamonds $(amt)
 $execute if score #have_dia item_count matches $(amt).. run tellraw @s [{"text":"💎 [The Citadel] ","color":"aqua","bold":true},{"text":"ฝากเพชร $(amt) เม็ดเข้าธนาคารทีมเรียบร้อยแล้ว!","color":"green"}]
 execute if score #have_dia item_count matches 16.. at @s run playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 1 1.4

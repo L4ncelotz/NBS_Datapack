@@ -56,11 +56,5 @@ scoreboard objectives add player_hp health
 # สิทธิ์เปิดดูสมุดสถิติ
 scoreboard objectives add view_stats trigger
 
-# แสดงผลคะแนนทีมด้านข้างจอ
+# แสดงผลคะแนนทีมด้านข้างจอ (รายชื่อทีมที่เปิดใช้งานและชื่อที่ตั้งเองจะถูกซิงค์ผ่าน nbs:team/team_setup)
 scoreboard objectives setdisplay sidebar team_score
-
-# ตั้งค่าเริ่มต้นให้มีชื่อทีมปรากฏบนตารางข้างจอ
-scoreboard players set ทีมที่_1 team_score 0
-scoreboard players set ทีมที่_2 team_score 0
-scoreboard players set ทีมที่_3 team_score 0
-scoreboard players set ทีมที่_4 team_score 0

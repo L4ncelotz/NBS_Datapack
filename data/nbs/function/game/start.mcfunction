@@ -10,8 +10,8 @@ bossbar set nbs:flash_quest visible false
 kill @e[type=minecraft:marker,tag=team_spawn]
 data remove storage nbs:game team_spawn
 
-# วาร์ปผู้เล่นทุกคนที่มีทีมแล้ว (team_id 1-4) ไปยังจุดเกิดทีมของตัวเอง
-execute as @a[tag=!rtp_joined,scores={team_id=1..4}] at @s run function nbs:rtp/join_team_spawn
+# วาร์ปผู้เล่นทุกคนที่มีทีมแล้ว (team_id 1-8) ไปยังจุดเกิดทีมของตัวเอง
+execute as @a[tag=!rtp_joined,scores={team_id=1..8}] at @s run function nbs:rtp/join_team_spawn
 
 # แจ้งเตือนทั้งเซิร์ฟเวอร์
 tellraw @a [{"text":"🚀 [NBs SMP] ","color":"gold","bold":true},{"text":"แอดมินได้เริ่มเกมแล้ว! สมาชิกแต่ละทีมถูกส่งไปยังจุดเกิดในป่าเรียบร้อย","color":"green"}]

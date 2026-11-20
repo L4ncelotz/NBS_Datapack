@@ -5,6 +5,10 @@ scoreboard players add #t1_sherd team_boss_cnt 0
 scoreboard players add #t2_sherd team_boss_cnt 0
 scoreboard players add #t3_sherd team_boss_cnt 0
 scoreboard players add #t4_sherd team_boss_cnt 0
+scoreboard players add #t5_sherd team_boss_cnt 0
+scoreboard players add #t6_sherd team_boss_cnt 0
+scoreboard players add #t7_sherd team_boss_cnt 0
+scoreboard players add #t8_sherd team_boss_cnt 0
 
 # 1. ค้นพบโครงสร้างโบราณ 16 แห่ง (ตรวจจาก nbs:adventurer_structures)
 function nbs:career/sync_crit {cat:"adventurer",adv:"nbs:adventurer_structures",crit:"village",key:"st_village",pts:15,name:"[Adventurer] ค้นพบหมู่บ้าน (Village)"}

@@ -12,6 +12,18 @@ execute if score @s team_id matches 3 if block ~ ~ ~ minecraft:green_wall_banner
 execute if score @s team_id matches 4 if block ~ ~ ~ minecraft:yellow_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 4"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
 execute if score @s team_id matches 4 if block ~ ~ ~ minecraft:yellow_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 4"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
 
+execute if score @s team_id matches 5 if block ~ ~ ~ minecraft:magenta_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 5"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+execute if score @s team_id matches 5 if block ~ ~ ~ minecraft:magenta_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 5"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+
+execute if score @s team_id matches 6 if block ~ ~ ~ minecraft:cyan_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 6"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+execute if score @s team_id matches 6 if block ~ ~ ~ minecraft:cyan_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 6"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+
+execute if score @s team_id matches 7 if block ~ ~ ~ minecraft:orange_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 7"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+execute if score @s team_id matches 7 if block ~ ~ ~ minecraft:orange_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 7"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+
+execute if score @s team_id matches 8 if block ~ ~ ~ minecraft:white_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 8"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+execute if score @s team_id matches 8 if block ~ ~ ~ minecraft:white_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 8"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run summon minecraft:marker ~ ~ ~ {Tags:["temp_flag_check"]}
+
 # 2. กรณีเอาธงอาณาเขตของทีมอื่นมาวาง (และจุดนั้นยังไม่มีหมุดธงเดิม) -> ดีดธงออกและแจ้งเตือนทันที
 execute unless score @s team_id matches 1 if block ~ ~ ~ minecraft:red_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 1"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
 execute unless score @s team_id matches 1 if block ~ ~ ~ minecraft:red_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 1"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
@@ -21,6 +33,14 @@ execute unless score @s team_id matches 3 if block ~ ~ ~ minecraft:green_banner 
 execute unless score @s team_id matches 3 if block ~ ~ ~ minecraft:green_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 3"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
 execute unless score @s team_id matches 4 if block ~ ~ ~ minecraft:yellow_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 4"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
 execute unless score @s team_id matches 4 if block ~ ~ ~ minecraft:yellow_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 4"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 5 if block ~ ~ ~ minecraft:magenta_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 5"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 5 if block ~ ~ ~ minecraft:magenta_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 5"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 6 if block ~ ~ ~ minecraft:cyan_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 6"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 6 if block ~ ~ ~ minecraft:cyan_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 6"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 7 if block ~ ~ ~ minecraft:orange_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 7"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 7 if block ~ ~ ~ minecraft:orange_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 7"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 8 if block ~ ~ ~ minecraft:white_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 8"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
+execute unless score @s team_id matches 8 if block ~ ~ ~ minecraft:white_wall_banner if data block ~ ~ ~ {CustomName:{text:"🚩 ธงอาณาเขต Team 8"}} unless entity @e[type=minecraft:marker,tag=flag_anchor,distance=..1.2] run function nbs:territory/reject_wrong_team_flag
 
 # ถ้ายังไม่เจอตัวเช็ก และยังไม่เกินระยะ 6.5 บล็อก ให้ขยับไปข้างหน้าอีก 0.25 บล็อกแล้วเช็กซ้ำ
 execute unless entity @e[type=minecraft:marker,tag=temp_flag_check] positioned ^ ^ ^0.25 if entity @s[distance=..6.5] run function nbs:territory/raycast_flag

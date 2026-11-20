@@ -5,6 +5,10 @@ scoreboard players add #t1_trim team_boss_cnt 0
 scoreboard players add #t2_trim team_boss_cnt 0
 scoreboard players add #t3_trim team_boss_cnt 0
 scoreboard players add #t4_trim team_boss_cnt 0
+scoreboard players add #t5_trim team_boss_cnt 0
+scoreboard players add #t6_trim team_boss_cnt 0
+scoreboard players add #t7_trim team_boss_cnt 0
+scoreboard players add #t8_trim team_boss_cnt 0
 
 # 1. แร่และวัตถุดิบ (Ores & Ingots)
 function nbs:career/sync_item {cat:"blacksmith",key:"or_coal",item:"minecraft:coal",pts:3,name:"[Blacksmith] ถ่านหิน (Coal)"}
