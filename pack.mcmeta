@@ -1,7 +1,9 @@
 {
   "pack": {
-    "pack_format": 103,
+    "pack_format": 84,
     "supported_formats": [48, 120],
+    "min_format": [48, 0],
+    "max_format": [120, 0],
     "description": "NBs SMP Core Datapack (MC 26.3)"
   }
 }
