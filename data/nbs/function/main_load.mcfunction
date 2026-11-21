@@ -44,9 +44,9 @@ function nbs:border/border_setup
 # 3. บังคับโหลด Chunk จุดศูนย์กลาง (0, 0) ตลอดเวลา (ป้องกันหมุด spawn_anchor หายเมื่อผู้เล่นทุกคนวาร์ปออกนอกเมือง)
 forceload add -16 -16 16 16
 
-# สร้างตัวปักหมุดจุด Spawn และลานป้อมปราการ The Citadel (ถ้ายังไม่มีในโลก)
+# สร้างตัวปักหมุดจุด Spawn, ป้อมปราการ The Citadel (0,0) และ NPC ทั้ง 3 ตัว (ถ้ายังไม่มีในโลก)
 # หมายเหตุ: หากต้องการสร้างลาน The Citadel ใหม่ที่ (0,0) ให้พิมพ์ /function nbs:spawn/build_citadel
-execute unless entity @e[type=minecraft:text_display,tag=citadel_title] run function nbs:spawn/build_citadel
+execute unless entity @e[type=minecraft:interaction,tag=citadel_npc_hit] run function nbs:spawn/build_citadel
 execute at @e[tag=spawn_anchor,limit=1] run setworldspawn ~ ~ ~
 
 # 4. ติดตั้ง Bossbar สำหรับระบบ Random Boost Quest (เควสด่วน)
