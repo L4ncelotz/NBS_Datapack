@@ -17,7 +17,7 @@ effect give @s minecraft:fire_resistance 5 1 true
 # บันทึกสถานะเข้าสู่เกมแล้ว
 tag @s add rtp_joined
 
-# แจ้งเตือนและเอฟเฟกต์ต้อนรับ
+# 8. แจ้งเตือนและเอฟเฟกต์
 title @s times 10 70 20
 title @s title {"text":"ยินดีต้อนรับสู่ NBs SMP!","color":"gold","bold":true}
 title @s subtitle {"text":"วาร์ปเข้าสู่จุดเกิดของทีมในป่าเรียบร้อยแล้ว!","color":"yellow"}

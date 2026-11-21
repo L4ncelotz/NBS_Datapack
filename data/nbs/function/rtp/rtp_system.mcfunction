@@ -4,7 +4,6 @@
 
 # ตรวจสอบและสร้าง Scoreboard ที่จำเป็นอัตโนมัติ
 scoreboard objectives add death_track deathCount
-scoreboard objectives add player_hp health
 scoreboard objectives add rnd_temp dummy
 
 # 1. เมื่อผู้เล่นที่มีแท็ก just_died "กดปุ่มเกิดใหม่แล้ว" (@e[type=minecraft:player] จะจับเฉพาะตัวละครที่มีชีวิตแล้วเท่านั้น ไม่จับตอนค้างหน้าจอ You Died!)
