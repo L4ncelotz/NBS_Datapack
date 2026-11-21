@@ -140,6 +140,7 @@ execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock 
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~6 ~ ~-6 minecraft:anvil
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~-6 ~ ~6 minecraft:lectern
 
-# 11. ตั้งจุดเกิดโลกและเสก 3 NPC ประจำป้อม
+# 11. ตั้งจุดเกิดโลก วาร์ปคนที่รออยู่ตรง (0,0) ขึ้นมาบนลานป้อม และเสก 3 NPC ประจำป้อม
 execute at @e[tag=spawn_anchor,limit=1] run setworldspawn ~ ~ ~
+execute at @e[tag=spawn_anchor,limit=1] as @a[distance=..48] run tp @s ~ ~ ~
 function nbs:spawn/summon_citadel_npcs

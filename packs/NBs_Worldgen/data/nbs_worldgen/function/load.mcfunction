@@ -1,4 +1,4 @@
-# โหลดระบบ NBs Worldgen: ถ้ายังไม่มี Citadel ของแพ็กนี้ในโลก ให้สร้างป้อมปราการ (0,0) อัตโนมัติ
+# เตรียม Scoreboard และ Forceload รอบจุดศูนย์กลาง (0, 0) — การสร้างจริงจะทำงานทันทีใน tick เมื่อ Chunk โหลดเสร็จสมบูรณ์
 scoreboard objectives add nbs_wg_tmp dummy
+scoreboard players add #citadel_ready nbs_wg_tmp 0
 forceload add -24 -24 24 24
-execute unless entity @e[tag=citadel_built_anchor] run function nbs_worldgen:build_citadel

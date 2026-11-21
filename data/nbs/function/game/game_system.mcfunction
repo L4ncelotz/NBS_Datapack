@@ -5,6 +5,9 @@ scoreboard players enable @a guide
 execute as @a[scores={guide=1..}] run function nbs:game/give_guide_book
 scoreboard players set @a[scores={guide=1..}] guide 0
 
+# Fallback: หากไม่ได้ลงแพ็ก NBs_Worldgen แยก ให้รอจนกว่า Chunk รอบ (0,0) จะโหลดจริงแล้วสร้างป้อม 31x31 + 3 NPC อัตโนมัติ
+execute if score #has_worldgen_pack game_state matches 0 unless entity @e[tag=citadel_built_anchor] if loaded -22 64 -22 if loaded 22 64 22 if loaded -22 64 22 if loaded 22 64 -22 if loaded 0 64 0 run function nbs:spawn/build_citadel
+
 # กรณีที่ 1: ช่วง Waiting / Lobby (#game_state == 0)
 # ดึงผู้เล่นที่เพิ่งเข้าโลกครั้งแรกแล้วยังอยู่นอกเขต The Citadel (0,0) มารวมตัวที่ลาน The Citadel
 execute if score #game_state game_state matches 0 as @a[tag=!in_spawn,tag=!admin,gamemode=!spectator] at @e[tag=spawn_anchor,limit=1] run tp @s ~ ~ ~

@@ -143,6 +143,8 @@ execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock 
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~6 ~ ~-6 minecraft:anvil
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~-6 ~ ~6 minecraft:lectern
 
-# 11. ตั้งจุดเกิดโลกและส่งสัญญาณให้ NBs_Datapack เสก NPC 3 ตัวประจำป้อม
+# 11. บันทึกสถานะสร้างเสร็จแล้ว ตั้งจุดเกิดโลก วาร์ปคนที่รออยู่ตรง (0,0) ขึ้นมาบนลานป้อม และส่งสัญญาณให้ NBs_Datapack เสก NPC 3 ตัว
+scoreboard players set #citadel_ready nbs_wg_tmp 1
 execute at @e[tag=spawn_anchor,limit=1] run setworldspawn ~ ~ ~
+execute at @e[tag=spawn_anchor,limit=1] as @a[distance=..48] run tp @s ~ ~ ~
 function #nbs:on_citadel_built
