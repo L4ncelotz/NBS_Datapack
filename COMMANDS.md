@@ -19,7 +19,8 @@
 | คำสั่ง | หน้าที่ |
 | :--- | :--- |
 | `/function nbs:team/admin_menu` | เปิด **⚙️ เมนูจัดการทีม (Admin Team Manager)** เพิ่ม/ลบทีม (1–8 ทีม), เปลี่ยนชื่อทีมบน Sidebar & Prefix, เปลี่ยนสีทีม |
-| `/function nbs:game/start` | เริ่มเกม + สุ่มวาร์ปแยกทีม + แจกธงต้นแรก |
+| `/function nbs:game/start` | เช็กความพร้อม & เริ่มเกม + สุ่มวาร์ปแยกทีม + แจกธงต้นแรก *(ล็อกทีม/อาชีพหลังเริ่มเกมอัตโนมัติ)* |
+| `/function nbs_worldgen:build_citadel` | สร้าง/อัปเกรดป้อมปราการ **The Citadel 31x31** + ฐานรากกันลอย + Beacon (จากแพ็ก `NBs_Worldgen`) |
 | `/function nbs:game/raid_on` | เปิดโหมด **Raid Day** (เปิด PvP + ดรอปป้ายชื่อ +15) |
 | `/function nbs:game/raid_off` | ปิดโหมด **Raid Day** (กลับสู่ช่วงปกติ) |
 | `/function nbs:citadel/start_flash_quest` | สุ่มเปิด **เควสด่วน Bossbar** ทันที |

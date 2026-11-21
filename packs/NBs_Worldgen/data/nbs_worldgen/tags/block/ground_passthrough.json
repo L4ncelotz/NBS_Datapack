@@ -1,0 +1,13 @@
+{
+  "values": [
+    "#minecraft:air",
+    "#minecraft:leaves",
+    "#minecraft:logs",
+    "#minecraft:replaceable",
+    "minecraft:bamboo",
+    "minecraft:vine",
+    "minecraft:water",
+    "minecraft:lily_pad",
+    "minecraft:snow"
+  ]
+}
