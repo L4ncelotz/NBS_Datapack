@@ -6,6 +6,12 @@ scoreboard objectives add player_score dummy
 scoreboard objectives add item_count dummy
 scoreboard objectives add item_value dummy
 scoreboard objectives add chest_score dummy
+scoreboard objectives add team_diamonds dummy
+scoreboard objectives add team_quest_pts dummy
+scoreboard objectives add team_adv_pts dummy
+scoreboard objectives add team_career_pts dummy
+scoreboard objectives add team_boss_cnt dummy
+scoreboard objectives add total_pvp_kills dummy
 
 # ตรวจจับการเปิดและวางกล่อง/ถัง
 scoreboard objectives add open_chest minecraft.custom:minecraft.open_chest
@@ -38,6 +44,7 @@ scoreboard objectives add raw_kill_wither minecraft.killed:minecraft.wither
 scoreboard objectives add raw_kill_warden minecraft.killed:minecraft.warden
 scoreboard objectives add raw_kill_elder minecraft.killed:minecraft.elder_guardian
 scoreboard objectives add raw_win_raid minecraft.custom:minecraft.raid_win
+scoreboard objectives add raw_win_trial dummy
 scoreboard objectives add player_kills playerKillCount
 scoreboard objectives add player_deaths deathCount
 scoreboard objectives add killed_by_player minecraft.killed_by:minecraft.player
@@ -49,11 +56,5 @@ scoreboard objectives add player_hp health
 # สิทธิ์เปิดดูสมุดสถิติ
 scoreboard objectives add view_stats trigger
 
-# แสดงผลคะแนนทีมด้านข้างจอ
+# แสดงผลคะแนนทีมด้านข้างจอ (รายชื่อทีมที่เปิดใช้งานและชื่อที่ตั้งเองจะถูกซิงค์ผ่าน nbs:team/team_setup)
 scoreboard objectives setdisplay sidebar team_score
-
-# ตั้งค่าเริ่มต้นให้มีชื่อทีมปรากฏบนตารางข้างจอ
-scoreboard players set ทีมที่_1 team_score 0
-scoreboard players set ทีมที่_2 team_score 0
-scoreboard players set ทีมที่_3 team_score 0
-scoreboard players set ทีมที่_4 team_score 0
