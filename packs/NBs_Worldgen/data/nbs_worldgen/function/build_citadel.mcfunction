@@ -17,7 +17,8 @@ scoreboard players set #wg_steps nbs_wg_tmp 0
 execute as @e[tag=spawn_anchor,limit=1] at @s run function nbs_worldgen:ground_anchor
 execute as @e[tag=spawn_anchor,limit=1] at @s align xyz run tp @s ~0.5 ~ ~0.5
 
-# 2. ปาดหน้าผาและต้นไม้รอบป้อมเป็นแอ่งขั้นบันได 3 ชั้น (กันภูเขาบังทางเข้าและกันกำแพงตัดตรง)
+# 2. ปาดหน้าผาและต้นไม้รอบป้อมเป็นแอ่งขั้นบันได 3 ชั้น (เคลียร์ยอดไม้สูงถึง y+28 กันใบไม้ลอยเหนือหลังคา)
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-15 ~16 ~-15 ~15 ~28 ~15 minecraft:air
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-22 ~5 ~-22 ~22 ~18 ~22 minecraft:air
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-18 ~2 ~-18 ~18 ~4 ~18 minecraft:air
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-15 ~ ~-15 ~15 ~1 ~15 minecraft:air

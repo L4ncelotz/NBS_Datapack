@@ -42,10 +42,12 @@ function nbs:team/team_setup
 function nbs:border/border_setup
 
 # 3. บังคับโหลด Chunk จุดศูนย์กลาง (0, 0) ตลอดเวลา (ป้องกันหมุด spawn_anchor หายเมื่อผู้เล่นทุกคนวาร์ปออกนอกเมือง)
-forceload add -16 -16 16 16
+forceload add -24 -24 24 24
 
-# ถ้าไม่มีแพ็ก NBs_Worldgen (ไม่มี citadel_built_anchor) ให้ตั้งหมุด Spawn กลางและ NPC พื้นฐานไว้ให้
-execute unless entity @e[tag=spawn_anchor] run function nbs:spawn/build_citadel
+# ตรวจว่ามีแพ็ก NBs_Worldgen แยกอยู่หรือไม่: ถ้าไม่มีให้ใช้ตัวสร้าง Citadel ใน NBs_Datapack สร้างป้อม 31x31 + 3 NPC อัตโนมัติ
+scoreboard players set #has_worldgen_pack game_state 0
+function #nbs_worldgen:installed
+execute if score #has_worldgen_pack game_state matches 0 unless entity @e[tag=citadel_built_anchor] run function nbs:spawn/build_citadel
 execute if entity @e[tag=spawn_anchor] unless entity @e[type=minecraft:interaction,tag=citadel_npc_hit] run function nbs:spawn/summon_citadel_npcs
 execute at @e[tag=spawn_anchor,limit=1] run setworldspawn ~ ~ ~
 
