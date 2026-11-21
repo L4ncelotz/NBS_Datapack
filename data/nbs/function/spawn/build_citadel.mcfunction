@@ -15,7 +15,7 @@ execute as @e[tag=spawn_anchor,limit=1] at @s align xyz run tp @s ~0.5 ~ ~0.5
 # 2. เคลียร์พื้นที่อากาศด้านบนและปูฐานป้อมปราการ The Citadel (21x21)
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-11 ~ ~-11 ~11 ~10 ~11 minecraft:air
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10 ~-3 ~-10 ~10 ~-1 ~10 minecraft:stone_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10 ~-1 ~-10 ~10 ~-1 ~10 minecraft:polished_deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10 ~-1 ~-10 ~10 ~-1 ~10 minecraft:deepslate_bricks
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-9 ~-1 ~-9 ~9 ~-1 ~9 minecraft:stone_bricks
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-6 ~-1 ~-6 ~6 ~-1 ~6 minecraft:polished_deepslate
 
@@ -35,28 +35,28 @@ execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~10 ~ ~-2 ~10 ~ ~2 minecraft:air
 
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-2 ~-2 ~-11 ~2 ~-2 ~-11 minecraft:stone_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-2 ~-1 ~-11 ~2 ~-1 ~-11 minecraft:polished_deepslate_brick_stairs[facing=south]
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-2 ~-1 ~-11 ~2 ~-1 ~-11 minecraft:deepslate_brick_stairs[facing=south]
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-2 ~-2 ~11 ~2 ~-2 ~11 minecraft:stone_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-2 ~-1 ~11 ~2 ~-1 ~11 minecraft:polished_deepslate_brick_stairs[facing=north]
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-2 ~-1 ~11 ~2 ~-1 ~11 minecraft:deepslate_brick_stairs[facing=north]
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~11 ~-2 ~-2 ~11 ~-2 ~2 minecraft:stone_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~11 ~-1 ~-2 ~11 ~-1 ~2 minecraft:polished_deepslate_brick_stairs[facing=west]
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~11 ~-1 ~-2 ~11 ~-1 ~2 minecraft:deepslate_brick_stairs[facing=west]
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-11 ~-2 ~-2 ~-11 ~-2 ~2 minecraft:stone_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-11 ~-1 ~-2 ~-11 ~-1 ~2 minecraft:polished_deepslate_brick_stairs[facing=east]
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-11 ~-1 ~-2 ~-11 ~-1 ~2 minecraft:deepslate_brick_stairs[facing=east]
 
 # 4. เสาค้ำ 4 มุมลาน + เสาป้อมใน 4 ต้น + หลังคาโดมกระจกกัน Phantom โฉบ
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10 ~ ~-10 ~-10 ~3 ~-10 minecraft:polished_deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10 ~ ~-10 ~-10 ~3 ~-10 minecraft:deepslate_bricks
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~-10 ~4 ~-10 minecraft:soul_lantern
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~10 ~ ~-10 ~10 ~3 ~-10 minecraft:polished_deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~10 ~ ~-10 ~10 ~3 ~-10 minecraft:deepslate_bricks
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~10 ~4 ~-10 minecraft:soul_lantern
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10 ~ ~10 ~-10 ~3 ~10 minecraft:polished_deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-10 ~ ~10 ~-10 ~3 ~10 minecraft:deepslate_bricks
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~-10 ~4 ~10 minecraft:soul_lantern
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~10 ~ ~10 ~10 ~3 ~10 minecraft:polished_deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~10 ~ ~10 ~10 ~3 ~10 minecraft:deepslate_bricks
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~10 ~4 ~10 minecraft:soul_lantern
 
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-5 ~ ~-5 ~-5 ~5 ~-5 minecraft:polished_deepslate_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~5 ~ ~-5 ~5 ~5 ~-5 minecraft:polished_deepslate_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-5 ~ ~5 ~-5 ~5 ~5 minecraft:polished_deepslate_bricks
-execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~5 ~ ~5 ~5 ~5 ~5 minecraft:polished_deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-5 ~ ~-5 ~-5 ~5 ~-5 minecraft:deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~5 ~ ~-5 ~5 ~5 ~-5 minecraft:deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-5 ~ ~5 ~-5 ~5 ~5 minecraft:deepslate_bricks
+execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~5 ~ ~5 ~5 ~5 ~5 minecraft:deepslate_bricks
 
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-6 ~6 ~-6 ~6 ~6 ~6 minecraft:polished_deepslate_slab[type=bottom]
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~-4 ~6 ~-4 ~4 ~6 ~4 minecraft:light_gray_stained_glass
