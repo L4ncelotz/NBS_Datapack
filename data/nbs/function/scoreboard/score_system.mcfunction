@@ -17,3 +17,17 @@ scoreboard players set @a place_barrel 0
 # ==========================================
 scoreboard players add #score_tick rnd_temp 1
 execute if score #score_tick rnd_temp matches 20.. run function nbs:scoreboard/recalc_scores
+
+# ==========================================
+# 3. ละอองระยิบระยับรอบกล่องที่ซ่อนไอเท็มนอกเขตธง (รัศมี 20 บล็อก ทำงานทุก 10 Tick)
+# ==========================================
+scoreboard players add #hidden_fx_tick rnd_temp 1
+execute if score #hidden_fx_tick rnd_temp matches 10.. as @e[type=minecraft:marker,tag=hidden_chest] at @s run function nbs:scoreboard/hidden_chest_particles
+execute if score #hidden_fx_tick rnd_temp matches 10.. run scoreboard players set #hidden_fx_tick rnd_temp 0
+
+# ==========================================
+# 4. ระบบคำสั่งดูพิกัดกล่องของชิงชัยนอกเขตธง (/trigger check_hidden)
+# ==========================================
+scoreboard players enable @a check_hidden
+execute as @a[scores={check_hidden=1..}] run function nbs:scoreboard/show_hidden_chests
+scoreboard players set @a[scores={check_hidden=1..}] check_hidden 0

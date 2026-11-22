@@ -22,8 +22,11 @@ scoreboard players set ทีมที่_6 team_score 0
 scoreboard players set ทีมที่_7 team_score 0
 scoreboard players set ทีมที่_8 team_score 0
 
-# 2.1 คะแนนของชิงชัยจากกล่องทุกใบที่อยู่ในรัศมีธงอาณาเขต (32 บล็อก) เท่านั้น
+# 2.1 คะแนนของชิงชัยจากกล่องทุกใบที่อยู่ในรัศมีธงอาณาเขต (32 บล็อก)
 execute as @e[type=minecraft:marker,tag=chest_anchor] at @s run function nbs:scoreboard/count_single_chest
+
+# 2.1.1 คะแนนของชิงชัยที่พกอยู่ในตัวผู้เล่นของแต่ละทีม (Dragon Egg, Nether Star, ป้ายชื่อคะแนน)
+execute as @a[scores={team_id=1..8},gamemode=!spectator] run function nbs:scoreboard/count_player_items
 
 # 2.2 คะแนนและตัวคูณของทีม 1 ถึง 8 (Nether Star Cap 5, บอสที่ล็อก Cap, เควส, เช็กลิสต์อาชีพ, Advancements)
 function nbs:citadel/tick_flash_quest

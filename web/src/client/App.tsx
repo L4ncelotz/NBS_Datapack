@@ -190,14 +190,8 @@ export default function App() {
             >
               {state.gameState === 1 ? '🚀 กำลังแข่งขัน (Active)' : '🕒 ห้องรอ (Lobby)'}
             </span>
-            <span
-              className={`px-3 py-1 rounded-lg font-semibold border ${
-                state.raidDay
-                  ? 'bg-red-500/25 text-red-200 border-red-500/50 animate-pulse'
-                  : 'bg-slate-800 text-slate-400 border-slate-700'
-              }`}
-            >
-              {state.raidDay ? '🔥 RAID DAY ON' : '🕊️ Raid Off'}
+            <span className="px-3 py-1 rounded-lg font-semibold border bg-red-500/20 text-red-300 border-red-500/40">
+              ⚔️ PvP ดรอปป้ายชื่อ: ทุกวัน (24/7)
             </span>
             <span className="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">
               👥 ออนไลน์ {state.onlinePlayers} คน
@@ -392,24 +386,6 @@ export default function App() {
                   className="px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold cursor-pointer disabled:opacity-50"
                 >
                   🎲 สุ่มทีม+อาชีพ
-                </button>
-                <button
-                  disabled={busy}
-                  onClick={() =>
-                    runAdmin(
-                      () =>
-                        api.api.admin.game.action.post(
-                          { action: state.raidDay ? 'raid_off' : 'raid_on' },
-                          authHeaders,
-                        ),
-                      state.raidDay ? '🕊️ ปิด Raid Day แล้ว' : '🔥 เปิด Raid Day แล้ว',
-                    )
-                  }
-                  className={`px-3 py-1.5 rounded-lg text-white text-xs font-bold cursor-pointer disabled:opacity-50 ${
-                    state.raidDay ? 'bg-slate-600 hover:bg-slate-500' : 'bg-red-600 hover:bg-red-500'
-                  }`}
-                >
-                  {state.raidDay ? '🕊️ ปิด Raid Day' : '🔥 เปิด Raid Day'}
                 </button>
                 <button
                   disabled={busy}

@@ -61,7 +61,7 @@ export async function generateSmartFlashQuest(
       model,
       contents: [
         `You are the Game Director for a competitive Minecraft 26.3 SMP (25-minute Flash Quest).`,
-        `Current standings: ${scoreSummary || 'Early game'}. Raid Day: ${state.raidDay ? 'ON' : 'OFF'}.`,
+        `Current standings: ${scoreSummary || 'Early game'}. PvP Drop: Always ON.`,
         `Recently used items to avoid repeating: ${recentItems.join(', ') || 'none'}.`,
         `Pick ONE fair and exciting quest item strictly from this allowed whitelist: ${allowedIds}.`,
         `Return JSON with item (exact minecraft:... id from whitelist), count (within min-max), displayName (short Thai+item label, max 36 chars, no quotes), and reason (short Thai explanation of why this fits the current match).`,

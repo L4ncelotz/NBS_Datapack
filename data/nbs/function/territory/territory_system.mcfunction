@@ -33,6 +33,10 @@ execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=6}] at @s un
 execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=7}] at @s unless block ~ ~ ~ minecraft:orange_banner unless block ~ ~ ~ minecraft:orange_wall_banner run function nbs:territory/break_flag_anchor
 execute as @e[type=minecraft:marker,tag=flag_anchor,scores={team_id=8}] at @s unless block ~ ~ ~ minecraft:white_banner unless block ~ ~ ~ minecraft:white_wall_banner run function nbs:territory/break_flag_anchor
 
+# เคลียร์และป้องกันหมุดธงที่หลุดเข้าไปในเขต Spawn (in_spawn)
+execute at @e[tag=spawn_anchor] positioned ~-86 -64 ~-86 as @e[type=minecraft:marker,tag=flag_anchor,dx=172,dy=384,dz=172] at @s run setblock ~ ~ ~ minecraft:air destroy
+execute at @e[tag=spawn_anchor] positioned ~-86 -64 ~-86 as @e[type=minecraft:marker,tag=flag_anchor,dx=172,dy=384,dz=172] at @s run function nbs:territory/break_flag_anchor
+
 scoreboard players add #flag_fx_tick rnd_temp 1
 execute if score #flag_fx_tick rnd_temp matches 10.. as @e[type=minecraft:marker,tag=flag_anchor] at @s run function nbs:territory/flag_particles
 execute if score #flag_fx_tick rnd_temp matches 10.. run scoreboard players set #flag_fx_tick rnd_temp 0

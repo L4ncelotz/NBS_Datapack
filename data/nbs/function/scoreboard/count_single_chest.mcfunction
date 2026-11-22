@@ -1,4 +1,5 @@
-# 1. เช็กว่าตำแหน่งของหมุดนี้ยังมีบล็อกกล่องหรือถังอยู่จริงไหม ถ้าไม่มีให้ลบหมุดทิ้ง
+# 1. เช็กว่าตำแหน่งของหมุดนี้ยังมีบล็อกกล่องหรือถังอยู่จริงไหม ถ้าไม่มีให้ล้างสถานะและลบหมุดทิ้ง
+execute if entity @s[tag=hidden_chest] unless block ~ ~ ~ minecraft:chest unless block ~ ~ ~ minecraft:trapped_chest unless block ~ ~ ~ minecraft:barrel run function nbs:scoreboard/clear_hidden_chest
 execute unless block ~ ~ ~ minecraft:chest unless block ~ ~ ~ minecraft:trapped_chest unless block ~ ~ ~ minecraft:barrel run kill @s
 
 # ==========================================
@@ -8,13 +9,24 @@ scoreboard players set #chest_owner team_id 0
 execute if entity @e[type=minecraft:marker,tag=flag_anchor,distance=..32] run scoreboard players operation #chest_owner team_id = @e[type=minecraft:marker,tag=flag_anchor,distance=..32,sort=nearest,limit=1] team_id
 
 # ==========================================
-# 3. ถ้ารู้ว่าเป็นของทีมใดในเขตธง (team_id 1-4) ให้นับไอเทมชิงชัยทั้งหมดในกล่อง
+# 3. รีเซ็ตตัวนับไอเทมชิงชัยในกล่อง และสแกนของในกล่อง
 # ==========================================
 scoreboard players set #egg_in_chest item_count 0
 scoreboard players set #nametag_in_chest item_count 0
 scoreboard players set #star_in_chest item_count 0
 
-execute if score #chest_owner team_id matches 1.. run function nbs:scoreboard/calc_chest_items
+execute if data block ~ ~ ~ Items[0] run function nbs:scoreboard/calc_chest_items
+
+# ==========================================
+# 4. หากอยู่นอกรัศมีอาณาเขตธง (#chest_owner team_id == 0) ให้เช็กการซ่อนไอเทมนับคะแนน
+# ==========================================
+execute if score #chest_owner team_id matches 0 run function nbs:scoreboard/check_hidden_chest
+
+# ==========================================
+# 5. หากอยู่ในเขตธง (#chest_owner team_id 1..8) ให้นับคะแนนเข้าทีม
+# ==========================================
+# หากเคยติดแท็ก hidden_chest (เช่น เพิ่งปักธงครอบกล่องนอกเขต) ให้เคลียร์สถานะแจ้งเตือนออก
+execute if score #chest_owner team_id matches 1.. if entity @s[tag=hidden_chest] run function nbs:scoreboard/clear_hidden_chest
 
 # ==========================================
 # 4. คำนวณคะแนนไข่มังกร (ฟองละ 150 แต้ม)

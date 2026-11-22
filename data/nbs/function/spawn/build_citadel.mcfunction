@@ -37,5 +37,5 @@ execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run fill ~6 ~
 execute at @e[tag=spawn_anchor,limit=1] align xyz positioned ~ ~ ~ run setblock ~6 ~3 ~6 minecraft:soul_lantern
 
 # 3. สร้างป้ายลอยต้อนรับเหนือจุดกึ่งกลาง The Citadel และตั้งค่าจุดเกิดโลก
-execute at @e[tag=spawn_anchor,limit=1] run summon minecraft:text_display ~ ~3.2 ~ {Tags:["citadel_title"],billboard:"center",background:1073741824,view_range:0.4f,text:["",{"text":"🏰 THE CITADEL (0, 0)\n","color":"gold","bold":true},{"text":"พิมพ์ ","color":"gray"},{"text":"/trigger citadel","color":"yellow","bold":true},{"text":" เพื่อซื้อธง • ฝากเพชร • ส่งเควส","color":"gray"}]}
+execute at @e[tag=spawn_anchor,limit=1] run summon minecraft:text_display ~ ~3.2 ~ {Tags:["citadel_title"],billboard:"center",background:1073741824,view_range:0.4f,text:'["",{"text":"🏰 THE CITADEL (0, 0)\\n","color":"gold","bold":true},{"text":"พิมพ์ ","color":"gray"},{"text":"/trigger citadel","color":"yellow","bold":true},{"text":" เพื่อซื้อธง • ฝากเพชร • ส่งเควส","color":"gray"}]'}
 execute at @e[tag=spawn_anchor,limit=1] run setworldspawn ~ ~ ~

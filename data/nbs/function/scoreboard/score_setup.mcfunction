@@ -13,9 +13,10 @@ scoreboard objectives add team_career_pts dummy
 scoreboard objectives add team_boss_cnt dummy
 scoreboard objectives add total_pvp_kills dummy
 
-# ตรวจจับการเปิดและวางกล่อง/ถัง
+# ตรวจจับการเปิดและวางกล่อง/ถัง/Shulker Box
 scoreboard objectives add open_chest minecraft.custom:minecraft.open_chest
 scoreboard objectives add open_barrel minecraft.custom:minecraft.open_barrel
+scoreboard objectives add open_shulker minecraft.custom:minecraft.open_shulker_box
 scoreboard objectives add place_chest minecraft.used:minecraft.chest
 scoreboard objectives add place_trapped minecraft.used:minecraft.trapped_chest
 scoreboard objectives add place_barrel minecraft.used:minecraft.barrel
@@ -52,9 +53,11 @@ scoreboard objectives add death_track deathCount
 scoreboard objectives add time_since_death minecraft.custom:minecraft.time_since_death
 scoreboard objectives add rnd_temp dummy
 scoreboard objectives add player_hp health
+scoreboard objectives add alert_timer dummy
 
-# สิทธิ์เปิดดูสมุดสถิติ
+# สิทธิ์เปิดดูสมุดสถิติและดูพิกัดของนอกเขต
 scoreboard objectives add view_stats trigger
+scoreboard objectives add check_hidden trigger
 
 # แสดงผลคะแนนทีมด้านข้างจอ (รายชื่อทีมที่เปิดใช้งานและชื่อที่ตั้งเองจะถูกซิงค์ผ่าน nbs:team/team_setup)
 scoreboard objectives setdisplay sidebar team_score

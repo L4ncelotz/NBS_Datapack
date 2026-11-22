@@ -16,8 +16,9 @@ function nbs:territory/territory_system
 # 4. ระบบการสังหารผู้เล่นและป้ายชื่อคะแนน (Kill Reward / Name Tag System)
 function nbs:kill_reward/kill_system
 
-# 5. ระบบป้องกันการซ่อนไอเทมใน Ender Chest (Anti-Enderchest System)
+# 5. ระบบป้องกันการซ่อนไอเทมใน Ender Chest, Bundle และ Shulker Box (Anti-Storage Protection)
 function nbs:anti_enderchest/anti_enderchest
+function nbs:anti_container/anti_container
 
 # 6. ระบบตารางคะแนนและสถิติ (Scoreboard & Stats System)
 function nbs:scoreboard/score_system

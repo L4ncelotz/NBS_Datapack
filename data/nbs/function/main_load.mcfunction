@@ -12,6 +12,7 @@ scoreboard objectives add pvp_cd dummy
 scoreboard objectives add team_id dummy
 scoreboard objectives add flag_count dummy
 scoreboard objectives add check_flag trigger
+scoreboard objectives add check_hidden trigger
 scoreboard objectives add flag_x dummy
 scoreboard objectives add flag_y dummy
 scoreboard objectives add flag_z dummy
@@ -22,6 +23,8 @@ scoreboard objectives add death_track deathCount
 scoreboard objectives add time_since_death minecraft.custom:minecraft.time_since_death
 scoreboard objectives add rnd_temp dummy
 scoreboard objectives add player_hp health
+scoreboard objectives add alert_timer dummy
+scoreboard objectives add open_shulker minecraft.custom:minecraft.open_shulker_box
 
 # Scoreboard ตรวจจับการวางธงอาณาเขตแยกตามสีทีม 1-8 (แดง, น้ำเงิน, เขียว, เหลือง, ม่วง, ฟ้าคราม, ส้ม, ขาว)
 scoreboard objectives add place_flag_1 minecraft.used:minecraft.red_banner
