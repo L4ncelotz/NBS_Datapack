@@ -3,6 +3,10 @@
 # ==========================================
 scoreboard players add @a pvp_cd 0
 scoreboard players add @a total_pvp_kills 0
+scoreboard players add @a lifetime_kills 0
+scoreboard players add @a lifetime_deaths 0
+scoreboard players add @a kill_streak 0
+scoreboard players add @a best_streak 0
 scoreboard players remove @a[scores={pvp_cd=1..}] pvp_cd 1
 
 # 1. กรณีเป็นวัน Raid Day (#raid_day == 1)
@@ -26,7 +30,14 @@ execute if score #raid_day game_state matches 1 run scoreboard players set @a[sc
 # 2. กรณีนอกวัน Raid Day (#raid_day == 0)
 execute if score #raid_day game_state matches 0 as @a[scores={player_kills=1..}] run tellraw @s [{"text":"🕊️ [NBs SMP] ","color":"yellow","bold":true},{"text":"ยังไม่ใช่วัน Raid Day! การสังหารผู้เล่นจะไม่ได้รับป้ายชื่อคะแนน","color":"gray"}]
 
-# 3. รีเซ็ตตัวตรวจจับรอบนั้น
+# 3. สะสมสถิติส่วนตัวระยะยาว (Lifetime K/D & Streak) ก่อนรีเซ็ตตัวนับรอบ Tick
+execute as @a[scores={player_kills=1..}] run scoreboard players operation @s lifetime_kills += @s player_kills
+execute as @a[scores={player_kills=1..}] run scoreboard players operation @s kill_streak += @s player_kills
+execute as @a[scores={player_kills=1..}] if score @s kill_streak > @s best_streak run scoreboard players operation @s best_streak = @s kill_streak
+execute as @a[scores={player_deaths=1..}] run scoreboard players operation @s lifetime_deaths += @s player_deaths
+scoreboard players set @a[scores={player_deaths=1..}] kill_streak 0
+
+# 4. รีเซ็ตตัวตรวจจับรอบนั้น
 scoreboard players set @a player_kills 0
 scoreboard players set @a player_deaths 0
 scoreboard players set @a killed_by_player 0

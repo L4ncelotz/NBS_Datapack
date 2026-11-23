@@ -2,9 +2,9 @@
 
 Datapack หลักและเอกสารสรุปโครงสร้างกติกา/ระบบคะแนนทั้งหมดของเซิร์ฟเวอร์ **NBs SMP** (Survival Multiplayer ระดับ Hardmode แบบแบ่งซีซันละ **2–4 สัปดาห์**)
 
-* 📖 คู่มือคำสั่งทั้งหมดในระบบ: [COMMANDS.md](file:///F:/NBS_Datapack/COMMANDS.md)
-* ⚡ คู่มือคำสั่งฉบับย่อสำหรับแปะใน Discord: [docs/commands_cheatsheet.md](file:///F:/NBS_Datapack/docs/commands_cheatsheet.md)
-* 📊 หน้า Dashboard สรุปคะแนนแบบ Interactive HTML: [docs/scoring_overview.html](file:///F:/NBS_Datapack/docs/scoring_overview.html)
+* 📖 คู่มือคำสั่งทั้งหมดในระบบ: [COMMANDS.md](./COMMANDS.md)
+* ⚡ คู่มือคำสั่งฉบับย่อสำหรับแปะใน Discord: [docs/commands_cheatsheet.md](./docs/commands_cheatsheet.md)
+* 📊 หน้า Dashboard สรุปคะแนนแบบ Interactive HTML: [docs/scoring_overview.html](./docs/scoring_overview.html)
 
 ---
 

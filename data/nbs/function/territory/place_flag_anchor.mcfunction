@@ -10,6 +10,32 @@ execute anchored eyes positioned ^ ^ ^0.5 run function nbs:territory/raycast_fla
 execute as @e[type=minecraft:marker,tag=temp_flag_check] at @s align xyz run tp @s ~0.5 ~0.5 ~0.5
 
 # ==========================================
+# 1.1 ตรวจสอบระดับความสูง Y (อนุญาตเฉพาะ Y 25 ถึง Y 130)
+# ==========================================
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] store result score #flag_y flag_y run data get entity @s Pos[1]
+
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if score #flag_y flag_y matches ..24 run setblock ~ ~ ~ minecraft:air destroy
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if score #flag_y flag_y matches ..24 run title @a[tag=flag_placer] actionbar {"text":"ไม่สามารถปักธงได้! ไม่อนุญาตให้วางต่ำกว่าระดับ Y 25 (อนุญาต Y 25 - 130)","color":"red"}
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if score #flag_y flag_y matches ..24 run playsound minecraft:block.note_block.bass player @a[tag=flag_placer] ~ ~ ~ 1 0.5
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] if score #flag_y flag_y matches ..24 run kill @s
+
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if score #flag_y flag_y matches 131.. run setblock ~ ~ ~ minecraft:air destroy
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if score #flag_y flag_y matches 131.. run title @a[tag=flag_placer] actionbar {"text":"ไม่สามารถปักธงได้! ไม่อนุญาตให้วางสูงกว่าระดับ Y 130 (อนุญาต Y 25 - 130)","color":"red"}
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if score #flag_y flag_y matches 131.. run playsound minecraft:block.note_block.bass player @a[tag=flag_placer] ~ ~ ~ 1 0.5
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] if score #flag_y flag_y matches 131.. run kill @s
+
+# ==========================================
+# 1.2 ตรวจสอบว่าปักธงในเขต Spawn (in_spawn) หรือไม่ -> ห้ามสร้างอาณาเขตในเขต Spawn
+# ==========================================
+execute as @e[type=minecraft:marker,tag=temp_flag_check] if entity @a[tag=flag_placer,tag=in_spawn] run tag @s add flag_in_spawn
+execute at @e[tag=spawn_anchor] positioned ~-86 -64 ~-86 as @e[type=minecraft:marker,tag=temp_flag_check,dx=172,dy=384,dz=172] run tag @s add flag_in_spawn
+
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1,tag=flag_in_spawn] at @s run setblock ~ ~ ~ minecraft:air destroy
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1,tag=flag_in_spawn] at @s run title @a[tag=flag_placer] actionbar {"text":"ไม่สามารถปักธงได้! ห้ามสร้างอาณาเขตในเขต Spawn (in_spawn)","color":"red"}
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1,tag=flag_in_spawn] at @s run playsound minecraft:block.note_block.bass player @a[tag=flag_placer] ~ ~ ~ 1 0.5
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1,tag=flag_in_spawn] run kill @s
+
+# ==========================================
 # 2. ตรวจสอบระยะห่างจากธงอาณาเขตต้นอื่น (แยกเงื่อนไขระหว่าง "ศัตรู" กับ "ทีมตัวเอง")
 # ==========================================
 # คัดลอกเลข team_id ของคนวางไปเก็บไว้ในตัวแปรกลางเพื่อใช้เทียบ
@@ -28,6 +54,12 @@ execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if entity
 execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if entity @e[type=minecraft:marker,tag=same_team_flag,distance=..1.5] run setblock ~ ~ ~ minecraft:air destroy
 execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if entity @e[type=minecraft:marker,tag=same_team_flag,distance=..1.5] run title @a[tag=flag_placer] actionbar {"text":"ไม่สามารถปักธงซ้อนทับจุดเดิมได้!","color":"red"}
 execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if entity @e[type=minecraft:marker,tag=same_team_flag,distance=..1.5] run kill @s
+
+# กรณี C: ถ้าทีมมีธงเดิมอยู่แล้ว แต่ปักธงใหม่ห่างจากขอบอาณาเขตเดิมเกิน 15 บล็อก (ระยะห่างจากหมุดเดิมเกิน 47 บล็อก) -> ห้ามปัก
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if entity @e[type=minecraft:marker,tag=same_team_flag] unless entity @e[type=minecraft:marker,tag=same_team_flag,distance=..47] run setblock ~ ~ ~ minecraft:air destroy
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if entity @e[type=minecraft:marker,tag=same_team_flag] unless entity @e[type=minecraft:marker,tag=same_team_flag,distance=..47] run title @a[tag=flag_placer] actionbar {"text":"ไม่สามารถปักธงได้! ต้องวางห่างจากขอบอาณาเขตเดิมไม่เกิน 15 บล็อก (ไม่เกิน 47 บล็อก)","color":"red"}
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] at @s if entity @e[type=minecraft:marker,tag=same_team_flag] unless entity @e[type=minecraft:marker,tag=same_team_flag,distance=..47] run playsound minecraft:block.note_block.bass player @a[tag=flag_placer] ~ ~ ~ 1 0.5
+execute as @e[type=minecraft:marker,tag=temp_flag_check,limit=1] if entity @e[type=minecraft:marker,tag=same_team_flag] unless entity @e[type=minecraft:marker,tag=same_team_flag,distance=..47] run kill @s
 
 # ล้างแท็กแยกฝ่ายชั่วคราวออกจากหมุดเดิมทั้งหมด
 tag @e[type=minecraft:marker,tag=flag_anchor] remove same_team_flag

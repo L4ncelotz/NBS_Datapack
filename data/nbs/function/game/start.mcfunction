@@ -40,7 +40,7 @@ execute as @a[gamemode=!spectator,scores={team_id=0}] run scoreboard players add
 execute as @a[gamemode=!spectator,scores={career_id=0}] run scoreboard players add #no_career_cnt rnd_temp 1
 
 # 4. เช็กกรณีไม่มีผู้เล่นเลย
-execute if score #ready_players rnd_temp matches 0 run tellraw @s [{"text":"❌ [NBs SMP] ","color":"red","bold":true},{"text":"ไม่พบผู้เล่นที่พร้อมเริ่มเกม (ทุกคนอยู่ในโหมด Spectator)","color":"yellow"}]
+execute if score #ready_players rnd_temp matches 0 run tellraw @a [{"text":"❌ [NBs SMP] ","color":"red","bold":true},{"text":"ไม่พบผู้เล่นที่พร้อมเริ่มเกม (ทุกคนอยู่ในโหมด Spectator)","color":"yellow"}]
 
 # 5. ถ้ายังมีคนเลือกทีม หรือเลือกสายอาชีพไม่ครบ -> บล็อกการเริ่มเกมและประกาศรายชื่อทันที!
 execute if score #ready_players rnd_temp matches 1.. if score #no_team_cnt rnd_temp matches 1.. run scoreboard players set #start_blocked rnd_temp 1
@@ -52,7 +52,7 @@ execute if score #ready_players rnd_temp matches 1.. if score #start_blocked rnd
 execute if score #ready_players rnd_temp matches 1.. if score #no_team_cnt rnd_temp matches 1.. run tellraw @a [{"text":" • ยังไม่ได้เลือกทีม: ","color":"red","bold":true},{"selector":"@a[gamemode=!spectator,scores={team_id=0}]","color":"yellow","bold":true}]
 execute if score #ready_players rnd_temp matches 1.. if score #no_career_cnt rnd_temp matches 1.. run tellraw @a [{"text":" • ยังไม่ได้เลือกสายอาชีพ: ","color":"aqua","bold":true},{"selector":"@a[gamemode=!spectator,scores={career_id=0}]","color":"white","bold":true}]
 execute if score #ready_players rnd_temp matches 1.. if score #start_blocked rnd_temp matches 1 run tellraw @a [{"text":" 👉 กดเพื่อเลือกตอนนี้: ","color":"gray"},{"text":"[👥 เลือกทีม] ","color":"green","bold":true,"click_event":{"action":"run_command","command":"/trigger join_team set 98"}},{"text":"[🛠️ เลือกสายอาชีพ]","color":"aqua","bold":true,"click_event":{"action":"run_command","command":"/trigger career"}}]
-execute if score #ready_players rnd_temp matches 1.. if score #start_blocked rnd_temp matches 1 run tellraw @s [{"text":" 🛡️ แอดมิน: ","color":"gold","bold":true},{"text":"[🎲 สุ่มทีม+อาชีพให้คนที่ยังไม่พร้อม] ","color":"yellow","bold":true,"click_event":{"action":"run_command","command":"/function nbs:game/auto_ready"}},{"text":"[⚡ บังคับเริ่มเกมทันที]","color":"red","bold":true,"click_event":{"action":"run_command","command":"/function nbs:game/do_start"}}]
+execute if score #ready_players rnd_temp matches 1.. if score #start_blocked rnd_temp matches 1 run tellraw @a [{"text":" 🛡️ แอดมิน: ","color":"gold","bold":true},{"text":"[🎲 สุ่มทีม+อาชีพให้คนที่ยังไม่พร้อม] ","color":"yellow","bold":true,"click_event":{"action":"run_command","command":"/function nbs:game/auto_ready"}},{"text":"[⚡ บังคับเริ่มเกมทันที]","color":"red","bold":true,"click_event":{"action":"run_command","command":"/function nbs:game/do_start"}}]
 execute if score #ready_players rnd_temp matches 1.. if score #start_blocked rnd_temp matches 1 run tellraw @a {"text":"========================================","color":"dark_red","bold":true}
 execute if score #ready_players rnd_temp matches 1.. if score #start_blocked rnd_temp matches 1 run playsound minecraft:block.note_block.bass master @a ~ ~ ~ 1 0.8
 

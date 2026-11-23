@@ -1,10 +1,7 @@
 # ==========================================
 # ระบบสุ่มจุดเกิดและเกิดใหม่ (RTP System)
 # ==========================================
-
-# ตรวจสอบและสร้าง Scoreboard ที่จำเป็นอัตโนมัติ
-scoreboard objectives add death_track deathCount
-scoreboard objectives add rnd_temp dummy
+# (Objective death_track และ rnd_temp ถูกประกาศรวมศูนย์ไว้ใน score_setup แล้ว)
 
 # 1. เมื่อผู้เล่นที่มีแท็ก just_died "กดปุ่มเกิดใหม่แล้ว" (@e[type=minecraft:player] จะจับเฉพาะตัวละครที่มีชีวิตแล้วเท่านั้น ไม่จับตอนค้างหน้าจอ You Died!)
 # 1.1 กรณีกลับมาเกิดในเขต Spawn กลาง (0, 0) เพราะไม่มีเตียง/Respawn Anchor:
