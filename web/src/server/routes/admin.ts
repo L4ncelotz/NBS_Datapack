@@ -310,8 +310,8 @@ export function createAdminRoutes({
           item: quest.item,
           count: quest.count,
           name: quest.displayName,
-          remainingSeconds: 1500,
-          maxSeconds: 1500,
+          remainingSeconds: 86400,
+          maxSeconds: 86400,
           source: quest.source,
           reason: quest.reason,
         };
@@ -354,8 +354,8 @@ export function createAdminRoutes({
             item: entry.item,
             count,
             name: safeName,
-            remainingSeconds: 1500,
-            maxSeconds: 1500,
+            remainingSeconds: 86400,
+            maxSeconds: 86400,
             source: 'MANUAL',
             reason: 'กำหนดโดยแอดมินผ่านหน้า Web Dashboard',
           };

@@ -5,7 +5,7 @@ function nbs:team/ensure_defaults
 scoreboard players set #game_state game_state 1
 scoreboard players set #raid_day game_state 0
 scoreboard players set #flash_timer rnd_temp 0
-scoreboard players set #flash_cooldown rnd_temp 1800
+scoreboard players set #flash_cooldown rnd_temp 86400
 bossbar set nbs:flash_quest visible false
 
 # ล้างพิกัดจุดเกิดทีมเก่าและสถานะการวาร์ปเดิม เพื่อให้ทุกคนถูกสุ่มวาร์ปแยกตามทีมพร้อมกัน

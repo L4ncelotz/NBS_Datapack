@@ -61,7 +61,7 @@ data remove storage nbs:adv done
 data remove storage nbs:career done
 scoreboard players set #flash_timer rnd_temp 0
 scoreboard players set #flash_first rnd_temp 0
-scoreboard players set #flash_cooldown rnd_temp 1800
+scoreboard players set #flash_cooldown rnd_temp 86400
 bossbar set nbs:flash_quest visible false
 
 function nbs:team/ensure_defaults

@@ -105,7 +105,7 @@ export async function generateSmartFlashQuest(
     const response = await ai.models.generateContent({
       model,
       contents: [
-        `You are the Game Director for a competitive Minecraft 26.3 SMP (25-minute Flash Quest).`,
+        `You are the Game Director for a competitive Minecraft 26.3 SMP (24-hour Daily Boost Quest).`,
         `Current standings: ${scoreSummary || 'Early game'}. Raid Day: ${state.raidDay ? 'ON' : 'OFF'}.`,
         `Recently used items to avoid repeating: ${recentItems.join(', ') || 'none'}.`,
         `Pick ONE fair and exciting quest item strictly from this allowed whitelist: ${allowedIds}.`,

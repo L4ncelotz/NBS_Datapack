@@ -527,8 +527,8 @@ export class GameStateManager {
               item: 'minecraft:blaze_rod',
               count: 12,
               name: 'Blaze Rod x12',
-              remainingSeconds: 1140,
-              maxSeconds: 1500,
+              remainingSeconds: 61200,
+              maxSeconds: 86400,
               source: 'POOL',
               reason: 'Demo Mode: เควสด่วนตัวอย่างระหว่างรอเชื่อมเซิร์ฟเวอร์ Minecraft จริง',
             }
@@ -538,7 +538,7 @@ export class GameStateManager {
               count: 0,
               name: 'รอเชื่อมต่อ Minecraft RCON',
               remainingSeconds: 0,
-              maxSeconds: 1500,
+              maxSeconds: 86400,
             },
       updatedAt: new Date().toISOString(),
     };
@@ -917,7 +917,7 @@ export class GameStateManager {
     const flashTimer =
       flashTimerRaw !== null ? (parseScoreResult(flashTimerRaw) ?? 0) : this.state.flashQuest.remainingSeconds;
     const flashMax =
-      flashMaxRaw !== null ? Math.max(1, parseBossbarMax(flashMaxRaw) ?? 1500) : this.state.flashQuest.maxSeconds;
+      flashMaxRaw !== null ? Math.max(1, parseBossbarMax(flashMaxRaw) ?? 86400) : this.state.flashQuest.maxSeconds;
     const parsedFlash = flashDataRaw !== null ? parseFlashStorage(flashDataRaw) : this.state.flashQuest;
 
     const resolvedGameState =
@@ -1046,7 +1046,7 @@ export class GameStateManager {
         count: 0,
         name: 'ยังไม่มีเควสด่วนในขณะนี้',
         remainingSeconds: 0,
-        maxSeconds: 1500,
+        maxSeconds: 86400,
       },
       updatedAt: new Date().toISOString(),
     };
