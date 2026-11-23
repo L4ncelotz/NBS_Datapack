@@ -60,7 +60,7 @@ export async function initDatabase(): Promise<boolean> {
       idle_timeout: 20,
     });
     await pgClient`SELECT 1`;
-    await pgClient`
+    await pgClient.unsafe(`
       CREATE TABLE IF NOT EXISTS seasons (
         id SERIAL PRIMARY KEY,
         name TEXT NOT NULL,
@@ -152,7 +152,7 @@ export async function initDatabase(): Promise<boolean> {
         mvp_kd TEXT NOT NULL DEFAULT '0.00',
         ended_at TIMESTAMP NOT NULL DEFAULT NOW()
       );
-    `;
+    `);
     dbInstance = drizzle(pgClient, { schema });
     dbReady = true;
 
